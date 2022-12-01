@@ -396,7 +396,7 @@ def clear_profile():
 @app.route("/upload", methods = ['post'])
 def upload():
     if request.method == 'POST':
-        img = request.files['file']:
+        img = request.files['file']
         if img:
             filename = img.filename
             img.save(filename)

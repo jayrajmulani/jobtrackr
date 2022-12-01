@@ -7,6 +7,7 @@ import config from '../../config';
 import AddApplication from '../AddApplication/AddApplication';
 import EditApplication from '../AddApplication/EditApplication';
 import './LandingPage.scss';
+import UploadFile from './UploadFile';
 
 const columns = {
 	applied: 'Applied',
@@ -35,7 +36,6 @@ export default function LandingPage() {
 	};
 
 	const toggleAddApplication = () => setAddApplicationOpen(!addApplicationOpen);
-
 	return (
 		<div className="LandingPage">
 			<div className="SubHeader">
@@ -55,7 +55,7 @@ export default function LandingPage() {
 					updateApplications={updateApplications}
 				/>
 			</div>
-
+			<UploadFile />
 			<div className="MainContent">
 				{Object.keys(columns).map((col) => (
 					<div className="Status" key={col}>

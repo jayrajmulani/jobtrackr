@@ -5,6 +5,7 @@ from pymongo import MongoClient, ReturnDocument
 import bcrypt
 from urllib.parse import urlparse, parse_qs
 from flask_cors import CORS
+import boto3
 
 app = Flask(__name__)
 app.secret_key = "testing"
@@ -17,6 +18,11 @@ UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles
 
+s3 = boto3.resource('s3')
+for bucket in s3.buckets.all():
+    print(bucket.name)
+data = open('test.jpg', 'rb')
+s3.Bucket('my-bucket').put_object(Key='test.jpg', Body=data)
 
 @app.route("/")
 def hello():

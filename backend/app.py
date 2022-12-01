@@ -7,6 +7,10 @@ from urllib.parse import urlparse, parse_qs
 from flask_cors import CORS
 import boto3
 
+s3 = boto3.client('s3', aws_access_key_id = "AKIA5WCCAKRFZIWVSVXP", aws_secret_access_key = "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")
+
+
+
 app = Flask(__name__)
 app.secret_key = "testing"
 CORS(app)
@@ -18,11 +22,11 @@ UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles
 
-s3 = boto3.resource('s3')
-for bucket in s3.buckets.all():
-    print(bucket.name)
-data = open('test.jpg', 'rb')
-s3.Bucket('my-bucket').put_object(Key='test.jpg', Body=data)
+# s3 = boto3.resource('s3')
+# for bucket in s3.buckets.all():
+#     print(bucket.name)
+# data = open('test.jpg', 'rb')
+# s3.Bucket('my-bucket').put_object(Key='test.jpg', Body=data)
 
 @app.route("/")
 def hello():
@@ -388,6 +392,20 @@ def clear_profile():
     except Exception as e:
         print(e)
         return jsonify({'error': "Something went wrong"}), 400
+
+@app.route("/upload", methods = ['post'])
+def upload():
+    if request.method == 'POST':
+        img = request.files['file']:
+        if img:
+            filename = img.filename
+            img.save(filename)
+            s3.upload_file(
+                Bucket = "job-tracker-resume-upload",
+                Filename = filename,
+                Key = filename
+            )
+            msg = "Upload done"
 
 
 if __name__ == "__main__":

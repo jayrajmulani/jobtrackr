@@ -163,7 +163,7 @@ class FlaskTest(unittest.TestCase):
         urlToSend = "/modify_application"
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
-        self.assertEqual(statuscode, 500)
+        self.assertEqual(statuscode, 400)
     
     def testviewFiles(self):
         tester = app.test_client(self)

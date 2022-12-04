@@ -24,13 +24,13 @@
 |Test cases are routinely executed|3|https://github.com/jayrajmulani/se-group1-project2/actions
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/CONTRIBUTING.md
 |Issues are discussed before they are closed|3|Pending
-|Chat channel: exists|3|Discord, Whatsapp
+|Chat channel: exists|3|Discord: https://discord.gg/ANGKkKvmWH , Whatsapp
 |Test cases: a large proportion of the issues related to handling failing cases.|3|https://github.com/jayrajmulani/se-group1-project2/issues
 |Evidence that the whole team is using the same tools: everyone can get to all tools and files|3|github, VSCode
 |Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)|3|Everyone is using the same tools. 
 |Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)|3|Everyone can demonstrate the project
 |Evidence that the members of the team are working across multiple places in the code base|3|frontend, backend, database, documentation, Github Actions, Tests
-|Short release cycles |3|https://github.com/ekanshsinghal/se-group26-proj1/commits/main|
+|Short release cycles |3|https://github.com/jayrajmulani/se-group1-project2
 ||||
 |Question 1.1: Does your website and documentation provide a clear, high-level overview of your software?|3|Yes|
 |Question 1.2: Does your website and documentation clearly describe the type of user who should use your software?|3|Yes|

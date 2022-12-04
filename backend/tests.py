@@ -44,6 +44,18 @@ class FlaskTest(unittest.TestCase):
         if statuscode == 400:
             # User already present
             self.assertEqual(statuscode, 400)
+    
+    def testViewApplication(self):
+        tester = app.test_client(self)
+        req = {}
+        req["email"] = "dhrumilshah1234@gmail.com"
+        urlToSend = "/view_applications"
+        response = tester.get(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+        self.assertEqual(type(response.applications_list),list)
+
+
 
 
 if __name__=="__main__":

@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10"]
+        python-version: "3.10"
 
     steps:
     - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
     - name: Add folders to Python Path
       run: |
           echo "PYTHONPATH=backend" >> $GITHUB_ENV
-    - name: Test all
+    - name: Auto Generate Documentation
       run: |
         echo "PYTHONPATH=./backend" >> $GITHUB_ENV
         pdoc --html backend --force --output-dir docs

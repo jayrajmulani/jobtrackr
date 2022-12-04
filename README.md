@@ -44,10 +44,6 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 
 ## Built Using
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/30636208/194690148-8e3dbe93-2ede-4da8-a44a-e4ee165b6b3b.png" width="100" style="margin-left:50px"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="100" style="margin-left:50px"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" width="100" style="margin-left:50px"> <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" width ="100" style="margin-left:50px"/> <img src="https://camo.githubusercontent.com/36ecb78d148678488fa43e5916e131906c15ea485b30232739d5633b2e0ce18c/68747470733a2f2f6b6576696e2d62726f776e2e636f6d2f696d616765732f666c61736b2d6c6f676f2e737667" width ="100" style="margin-left:25px"/> 
-</p>
-
 
  ## Basic Design
 ![image](./ui/assets/Block.jpg)
@@ -70,7 +66,7 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 ## Deployed Using
 
 <p align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Jenkins_logo.svg/langfr-1024px-Jenkins_logo.svg.png" width="100" style="margin-left:50px"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" width="150" style="margin-left:50px"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Docker_logo.svg/2880px-Docker_logo.svg.png" width="200" style="margin-left:50px; margin-bottom:25px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1280px-Ansible_logo.svg.png" width="100" style="margin-left:50px">
+<img src="./ui/assets/deploy.png" width="65%" style="margin-left:50px">
 </p>
 
 ## Deployed With

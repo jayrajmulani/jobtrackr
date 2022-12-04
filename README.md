@@ -19,6 +19,7 @@
 [![GitHub Release](https://img.shields.io/github/release/jayrajmulani/se-group1-project2)](https://github.com/jayrajmulani/se-group1-project2/releases/)
 [![codecov](https://codecov.io/github/jayrajmulani/se-group1-project2/branch/main/graph/badge.svg?token=fHCWUMUXXr)](https://codecov.io/github/jayrajmulani/se-group1-project2)
 
+## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr
 
 ## Goal
 
@@ -27,8 +28,6 @@ Your personalized JobTracker application in one place!
 ## Description
 
 Excel sheets that are complex and disorganized must go! Every job-related data can be managed by our JobTrackr Application, including your job profile, applications, status, important dates, notes, saved applications, job descriptions, recruiter details, compensation and offer package, and more.
-
-![get a job](https://user-images.githubusercontent.com/30636208/194686221-a4300703-2745-4fbb-b59f-81528896040a.gif)
 
 ## Introduction
 
@@ -49,7 +48,7 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 </p>
 
  ## Basic Design
-![image](./ui/assets/Block.jpg)
+![image](./ui/assets/Block2.png)
 
 <!--
 ## Roadmap

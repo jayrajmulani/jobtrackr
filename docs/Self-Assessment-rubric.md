@@ -12,13 +12,13 @@
 |but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/jayrajmulani/se-group1-project2/pulse|
 |Number of commits|3|https://github.com/jayrajmulani/se-group1-project2/graphs/commit-activity 
 |Number of commits: by different people|3|https://github.com/jayrajmulani/se-group1-project2/graphs/contributors
-|Issues reports: there are **many**|3| git
-|Issues are being closed|3| pycodestyle, flake8
-|DOI badge: exists |3|Prettier code formatter used
+|Issues reports: there are **many**|3| https://github.com/jayrajmulani/se-group1-project2/issues
+|Issues are being closed|3| https://github.com/jayrajmulani/se-group1-project2/issues?q=is%3Aissue+is%3Aclosed
+|DOI badge: exists |3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md
 |Docs: doco generated, format not ugly |3|pylint, eslint used to check the code syntax
-|Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z|3|https://github.com/ekanshsinghal/se-group26-proj1
-|ODocs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|3|https://github.com/ekanshsinghal/se-group26-proj1
-|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/__tests__/App.test.jsx
+|Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z|3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs
+|ODocs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs
+|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md
 |Use of version control tools|3|https://github.com/ekanshsinghal/se-group26-proj1/actions
 |Test cases exist|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/CONTRIBUTING.md
 |Test cases are routinely executed|3|Yes. We have a WhatsApp group where we discuss issues. We also use github issues to keep track of the issues found in the application(https://github.com/ekanshsinghal/se-group26-proj1/issues)

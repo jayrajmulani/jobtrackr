@@ -25,36 +25,85 @@ Files = db.file
 
 @app.route("/")
 def hello():
+    
+    '''
+    ```
+    Welcome Page 
+    ```
+    '''
+    
     return "Hello, Track your job on :3000"
 
 
 @app.route("/register", methods=["post"])
 def register():
+    
+    '''
+    ```
+    Register if you do not already have an account 
+    ```
+    '''
+    
     return auth.register(UserRecords)
 
 
 @app.route("/login", methods=["POST"])
 def login():
+    
+    '''
+    ```
+    Login to get to the dashboard to access various functions
+    ```
+    '''
+    
     return auth.login(UserRecords)
 
 
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
+    
+    '''
+    ```
+    Log out of your account
+    ```
+    '''
+    
     return auth.logout()
 
 
 @app.route("/view_applications", methods=["GET"])
 def view_applications():
+    
+    '''
+    ```
+    View applications associated with the selected email ID 
+    ```
+    '''
+    
     return applications.view_applications(Applications)
 
 
 @app.route("/view_questions", methods=["GET"])
 def view_questions():
+    
+    '''
+    ```
+    View questions associated with the selected email ID 
+    ```
+    '''
+    
     return questions.view_questions(Questions)
 
 
 @app.route("/add_application", methods=["POST"])
 def add_application():
+    
+    '''
+    ```
+    Add application to an account with selected email ID.  
+    ```
+    '''
+    
     return applications.add_application(Applications)
 
 

@@ -25,7 +25,7 @@ jobs:
     - name: Add folders to Python Path
       run: |
           echo "PYTHONPATH=backend" >> $GITHUB_ENV
-    - name: Test all
+    - name: Auto Generate Documentation
       run: |
         echo "PYTHONPATH=./backend" >> $GITHUB_ENV
         pdoc --html backend --force --output-dir docs
@@ -41,3 +41,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: CodeCov
       uses: codecov/codecov-action@v3
+

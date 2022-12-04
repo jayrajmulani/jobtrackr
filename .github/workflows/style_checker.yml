@@ -24,7 +24,7 @@ jobs:
     - name: Add folders to Python Path
       run: |
           echo "PYTHONPATH=backend" >> $GITHUB_ENV
-    - name: Test all
+    - name: Style checkers
       run: |
         echo "PYTHONPATH=./backend" >> $GITHUB_ENV
         pycodestyle --first backend/app.py

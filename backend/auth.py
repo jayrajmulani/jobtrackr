@@ -5,6 +5,26 @@ import bcrypt
 
 
 def register(UserRecords):
+    
+    '''
+    ```
+    Request:
+    {
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        confirmPassword: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         req = request.get_json()
         name = {"firstName": req["firstName"], "lastName": req["lastName"]}
@@ -30,6 +50,23 @@ def register(UserRecords):
 
 
 def login(UserRecords):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string,
+        password: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         req = request.get_json()
         email = req["email"]
@@ -51,10 +88,70 @@ def login(UserRecords):
 
 
 def logout():
+    
+    '''
+    ```
+    Request:
+    {
+        
+    }
+    Response:
+    {
+        data: message (Success)
+        
+    }
+    ```
+    '''
+    
     return jsonify({'message': 'Logout successful'}), 200
 
 
 def create_profile(UserProfiles):
+    
+    '''
+    ```
+    Request:
+    {
+        firstName: string,
+        lastName: string,
+        email: string,
+        phone: number,
+        city: string,
+        state: string,
+        resume: file ,
+        gitHub: string,
+        linkedIn: string,
+        skills: string,
+        about: string,
+        interests: string,
+        companyName: string,
+        jobTitle: string,
+        description: string,
+        jobCity: string,
+        jobState: string,
+        jobFrom: string,
+        toFrom: string,
+        curentJob: string,
+        institution: string,
+        major: string,
+        degree: string,
+        courses: string,
+        universityCity: string,
+        universityState: string,
+        universityFromDate: date,
+        universityToDate: date,
+        curentUniversity: string
+       
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -105,6 +202,22 @@ def create_profile(UserProfiles):
 
 
 def view_profile(UserProfiles):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             email = request.args.get("email")
@@ -125,6 +238,22 @@ def view_profile(UserProfiles):
 
 
 def clear_profile(UserProfiles, UserRecords):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -145,6 +274,52 @@ def clear_profile(UserProfiles, UserRecords):
 
 
 def modify_profile(UserProfiles):
+    
+    '''
+    ```
+    Request:
+    {
+        firstName: string,
+        lastName: string,
+        email: string,
+        phone: number,
+        city: string,
+        state: string,
+        state: string,
+        resume: file ,
+        gitHub: string,
+        linkedIn: string,
+        skills: string,
+        about: string,
+        interests: string,
+        companyName: string,
+        jobTitle: string,
+        description: string,
+        jobCity: string,
+        jobState: string,
+        jobFrom: string,
+        toFrom: string,
+        curentJob: string,
+        institution: string,
+        major: string,
+        degree: string,
+        courses: string,
+        universityCity: string,
+        universityState: string,
+        universityFromDate: date,
+        universityToDate: date,
+        curentUniversity: string
+       
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()

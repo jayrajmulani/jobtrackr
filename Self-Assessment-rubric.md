@@ -1,10 +1,10 @@
 |Notes|Self Assessment (Total:)|evidence|
 |-----|---------------|--------|
 |Video1|3|https://github.com/ekanshsinghal/se-group26-proj1#readme| 
-|Workload is spread over the whole team (one team member is often Xtimes more productive than the others... but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
-|Number of commits|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/commit-activity|
-|Number of commits: by different people|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
-|Issues reports: there are **many**|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
+|Xfold improvemnt |3| Improvements :|
+|Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/commit-activity|
+|Use of style checkers|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
+|Use of code formatters.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
 |Issues are being closed|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
 |DOI badge: exists|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/README.md|
 |Docs: doco generated, format not ugly |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|

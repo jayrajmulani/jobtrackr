@@ -4,6 +4,23 @@ from pymongo import ReturnDocument
 
 
 def delete_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string,  
+        id: number
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()

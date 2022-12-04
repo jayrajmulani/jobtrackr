@@ -12,6 +12,27 @@ bucket_name = "job-tracker-resume-upload"
 
 
 def upload_file(UserRecords, Files):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string,
+        start: string,
+        file: file,
+        end: string,
+        filename: string
+        
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         file = request.files['file']
         email = str(request.files['email'].read())
@@ -44,6 +65,22 @@ def upload_file(UserRecords, Files):
 
 
 def view_files(Files):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             email = request.args.get("email")
@@ -63,6 +100,22 @@ def view_files(Files):
 
 
 def download_file(Files):
+    
+    '''
+    ```
+    Request:
+    {
+         
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -81,6 +134,21 @@ def download_file(Files):
 
 
 def delete_file(Files):
+    
+    '''
+    ```
+    Request:
+    { 
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()

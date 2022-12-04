@@ -212,7 +212,7 @@ def view_profile(UserProfiles):
     Response:
     {
         status: boolean
-        data: message (Success)
+        data: message (Success / Error message as per status)
         
     }
     ```

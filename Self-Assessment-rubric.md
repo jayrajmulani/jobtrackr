@@ -5,14 +5,14 @@
 |Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/commit-activity|
 |Use of style checkers|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
 |Use of code formatters.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
-|Issues are being closed|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
-|DOI badge: exists|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/README.md|
-|Docs: doco generated, format not ugly |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
-|Docs: what: point descriptions of each class/function (in isolation) |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
-|Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
-|Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
-|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
-|Use of version control tools|3| git
+|Use of syntax checkers.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
+|Use of code coverage|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/README.md|
+|Other automated analysis tools |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
+|Workload is spread over the whole team (one team member is often Xtimes more productive than the others... |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
+|but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
+|Number of commits|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
+|Number of commits: by different people|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
+|Issues reports: there are **many**|3| git
 |Use of style checkers |3| pycodestyle, flake8
 |Use of code formatters. |3|Prettier code formatter used
 |Use of syntax checkers. |3|pylint, eslint used to check the code syntax

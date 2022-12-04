@@ -113,11 +113,13 @@ def delete_file(Files):
         if request:
             req = request.get_json()
             df = Files.find_one_and_delete({&#34;filename&#34;: req[&#34;filename&#34;]})
-
             if df == None:
                 return jsonify({&#34;error&#34;: &#34;No such Job ID found for this user&#39;s email&#34;}), 500
             else:
-                s3.delete_object(Bucket=bucket_name, Key=req[&#34;filename&#34;])
+                try:
+                    s3.delete_object(Bucket=bucket_name, Key=req[&#34;filename&#34;])
+                except:
+                    pass
                 return jsonify({&#34;message&#34;: &#34;File Deleted Successfully&#34;}), 200
     except Exception:
         return jsonify({&#39;error&#39;: &#39;Something went wrong&#39;}), 500</code></pre>
@@ -144,11 +146,13 @@ def delete_file(Files):
         if request:
             req = request.get_json()
             df = Files.find_one_and_delete({&#34;filename&#34;: req[&#34;filename&#34;]})
-
             if df == None:
                 return jsonify({&#34;error&#34;: &#34;No such Job ID found for this user&#39;s email&#34;}), 500
             else:
-                s3.delete_object(Bucket=bucket_name, Key=req[&#34;filename&#34;])
+                try:
+                    s3.delete_object(Bucket=bucket_name, Key=req[&#34;filename&#34;])
+                except:
+                    pass
                 return jsonify({&#34;message&#34;: &#34;File Deleted Successfully&#34;}), 200
     except Exception:
         return jsonify({&#39;error&#39;: &#39;Something went wrong&#39;}), 500</code></pre>

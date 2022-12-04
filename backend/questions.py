@@ -39,6 +39,24 @@ def delete_question(Questions):
 
 
 def add_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -58,6 +76,22 @@ def add_question(Questions):
 
 
 def view_questions(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             email = request.args.get("email")
@@ -78,6 +112,25 @@ def view_questions(Questions):
 
 
 def modify_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+        id: number
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()

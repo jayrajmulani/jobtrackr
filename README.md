@@ -12,7 +12,7 @@
 ![Closed issues](https://img.shields.io/github/issues-closed-raw/jayrajmulani/se-group1-project2?color=bright-green)
 [![frontend-build](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/frontend_build_test.yml/badge.svg?branch=main)](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/frontend_build_test.yml)
 [![Backend-build](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/backend_build.yml/badge.svg)](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/backend_build.yml)
-[![Backend-Test](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/backend_test.yml/badge.svg)](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/backend_test.yml)
+[![Backend-Test](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/code_coverage.yml/badge.svg)](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/code_coverage.yml)
 
 <!-- ![Lines of code](https://img.shields.io/tokei/lines-raw/github.com/ekanshsinghal/se-group26-proj1) -->
 ![Repo Size](https://img.shields.io/github/repo-size/jayrajmulani/se-group1-project2?color=brightgreen)

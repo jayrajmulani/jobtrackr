@@ -132,6 +132,54 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
+    
+    def testWrongModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         "question": "Q1",
+         "answer": "A1",
+        "_id": "IDONTEXIST",
+        "email": "dhrumilshah1234@gmail.com"
+        }
+        urlToSend = "/modify_question"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        # Since the ID doesnt exist. 
+        self.assertEqual(statuscode, 400)
+    
+    def testWrongModifyApplication(self):
+        tester = app.test_client(self)
+        req = {
+            "companyName": "k",
+            "jobTitle": "jl",
+            "jobId": "nln",
+            "description": "lkn",
+            "url": "lknl",
+            "date": "2022-12-02T21:26:03.739Z",
+            "status": "interview",
+            "_id": "IDONTEXIST",
+            "email": "dhrumilshah1234@gmail.com"
+        }
+        urlToSend = "/modify_application"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 500)
+    
+    def testviewFiles(self):
+        tester = app.test_client(self)
+        email = "dhrumilshah1234@gmail.com"
+        urlToSend = f"/view_files?email={email}"
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testEmptyFiles(self):
+        tester = app.test_client(self)
+        email = "a@a.com"
+        urlToSend = f"/view_files?email={email}"
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
       
 if __name__=="__main__":
      unittest.main()

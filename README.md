@@ -100,14 +100,14 @@ https://user-images.githubusercontent.com/30636208/194689139-29cdb217-a9e1-4fea-
 1. Clone the repository
 
 ```
-git clone https://github.com/ekanshsinghal/se-group26-proj1.git
+git clone https://github.com/jayrajmulani/se-group1-project2.git
 ```
 
 2. Install NPM dependencies
 
 ```
-cd se-group26-proj1
-yarn
+cd se-group1-project2/ui
+npm install
 ```
 
 
@@ -115,7 +115,7 @@ yarn
 
 Open a new terminal inside the backend directory.
 
-`cd se-group26-proj1\backend`
+`se-group1-project2\backend`
 
 
 Create a virtual environment called `venv`
@@ -152,10 +152,10 @@ The flask server runs in [http://localhost:8000](http://localhost:8000)
 
 ### Development Mode
 
-In the project directory, you can run:
+In the ui folder of project directory, you can run:
 
 ```
-yarn start
+npm start
 ```
 
 Runs the app in the development mode.\

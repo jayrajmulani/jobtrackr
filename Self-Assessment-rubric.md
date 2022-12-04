@@ -1,7 +1,7 @@
 |Notes|Self Assessment (Total:)|evidence|
 |-----|---------------|--------|
-|Video1|3|https://github.com/ekanshsinghal/se-group26-proj1#readme| 
-|Xfold improvemnt |3| Improvements :|
+|Video1|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md| 
+|Xfold improvemnt |3| Improvements : Manage file feature added|
 |Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/commit-activity|
 |Use of style checkers|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
 |Use of code formatters.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues

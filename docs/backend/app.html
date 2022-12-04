@@ -39,8 +39,10 @@ app.secret_key = &#34;testing&#34;
 app.config[&#39;CORS_HEADERS&#39;] = &#39;Content-Type&#39;
 CORS(app)
 
-client = MongoClient(
-    &#34;mongodb+srv://mongo:yWXYQRPzPLGeE1AX@cluster0.cp3anun.mongodb.net/?retryWrites=true&amp;w=majority&#34;, tlsAllowInvalidCertificates=True)
+db1 = &#34;mongodb+srv://mongo:yWXYQRPzPLGeE1AX@cluster0.cp3anun.mongodb.net/&#34;
+db2 = &#34;?retryWrites=true&amp;w=majority&#34;
+db = db1 + db2
+client = MongoClient(db, tlsAllowInvalidCertificates=True)
 db = client.get_database(&#34;development&#34;)
 UserRecords = db.register
 Applications = db.Applications
@@ -145,7 +147,7 @@ def download_file():
     def delete(response):
         try:
             os.remove(request.get_json()[&#34;filename&#34;].split(&#34;--;--&#34;)[1])
-        except:
+        except Exception:
             pass
         return response
     return files.download_file(Files)
@@ -280,7 +282,7 @@ def download_file():
     def delete(response):
         try:
             os.remove(request.get_json()[&#34;filename&#34;].split(&#34;--;--&#34;)[1])
-        except:
+        except Exception:
             pass
         return response
     return files.download_file(Files)</code></pre>

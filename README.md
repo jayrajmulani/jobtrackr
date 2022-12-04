@@ -34,6 +34,9 @@ Excel sheets that are complex and disorganized must go! Every job-related data c
 
 https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-96fa-b1425dfc9504.mp4
 
+## Introduction for updated project with new features
+
+https://app.animaker.com/video/13G8NDYJQLOO6FS1
 
 ## Built Using
 

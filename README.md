@@ -44,6 +44,9 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 
 ## Built Using
 
+<p align="center">
+<img src="./ui/assets/built.png" width="65%" style="margin-left:50px">
+</p>
 
  ## Basic Design
 ![image](./ui/assets/Block.jpg)

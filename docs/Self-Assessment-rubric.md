@@ -7,11 +7,11 @@
 |Use of code formatters.|3|Prettier code formatter used
 |Use of syntax checkers.|3|pylint, eslint used to check the code syntax
 |Use of code coverage|3|https://github.com/jayrajmulani/se-group1-project2|
-|Other automated analysis tools |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
-|Workload is spread over the whole team (one team member is often Xtimes more productive than the others... |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
-|but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
-|Number of commits|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
-|Number of commits: by different people|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
+|Other automated analysis tools |3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs|
+|Workload is spread over the whole team (one team member is often Xtimes more productive than the others... |3|https://github.com/jayrajmulani/se-group1-project2/pulse
+|but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/jayrajmulani/se-group1-project2/pulse|
+|Number of commits|3|https://github.com/jayrajmulani/se-group1-project2/graphs/commit-activity 
+|Number of commits: by different people|3|https://github.com/jayrajmulani/se-group1-project2/graphs/contributors
 |Issues reports: there are **many**|3| git
 |Issues are being closed|3| pycodestyle, flake8
 |DOI badge: exists |3|Prettier code formatter used

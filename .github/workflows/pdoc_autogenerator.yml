@@ -41,5 +41,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: CodeCov
       uses: codecov/codecov-action@v3
-      with:
-        token: ${{secrets.CODECOV_TOKEN}}
+

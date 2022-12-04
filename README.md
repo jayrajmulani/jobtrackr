@@ -36,7 +36,11 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 
 ## Introduction for updated project with new features
 
-https://app.animaker.com/video/13G8NDYJQLOO6FS1
+<p align="center">
+  <a href="https://app.animaker.com/video/13G8NDYJQLOO6FS1"><img src="./ui/assets/part2.png" alt="Click me" width="50%" height="50%"/></a>
+</p>
+
+
 
 ## Built Using
 
@@ -46,7 +50,7 @@ https://app.animaker.com/video/13G8NDYJQLOO6FS1
 
 
  ## Basic Design
-![image](https://github.com/jayrajmulani/se-group1-project2/tree/main/ui/assets/Block.jpg)
+![image](./ui/assets/Block.jpg)
 
 <!--
 ## Roadmap

@@ -54,9 +54,12 @@ def view_files(Files):
                     i['filename'] = i['filename']
                     i['_id'] = str(i['_id'])
                     files.append(i)
-                return jsonify({'message': 'Files found', 'files': files}), 200
+                if files:
+                    return jsonify({'message': 'Files found', 'files': files}), 200
+                else:
+                    return jsonify({'message': 'No Files found', 'files': files}), 200
             else:
-                return jsonify({'message': 'You have no files'}), 200
+                return jsonify({'message': 'Email Doesnt Exist'}), 400
     except Exception as e:
         print(e)
         return jsonify({'error': "Something went wrong"}), 500

@@ -74,14 +74,14 @@ export default function App() {
 								mode="vertical"
 								style={{ width: 200 }}
 								items={[
-									{
-										key: 'profile',
-										label: (
-											<Button type='link' onClick={() => navigate('/profile', { state })}>
-												My Profile
-											</Button>
-										),
-									},
+									// {
+									// 	key: 'profile',
+									// 	label: (
+									// 		<Button type='link' onClick={() => navigate('/profile', { state })}>
+									// 			My Profile
+									// 		</Button>
+									// 	),
+									// },
 									{
 										key: 'logout',
 										label: (
@@ -103,7 +103,7 @@ export default function App() {
 						<Route path="/interested" element={<SavedJobs />} />
 						<Route path="/files" element={<ManageFiles />} />
 						<Route path="/qa" element={<QA />} />						
-						<Route path="/profile" element={<Profile />} />
+						{/* <Route path="/profile" element={<Profile />} /> */}
 						<Route path="*" element={<Navigate to="/home" replace />} />
 					</Routes>
 				</Content>

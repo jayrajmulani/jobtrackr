@@ -51,7 +51,6 @@ def view_questions(Questions):
                     del i['email']
                     i['_id'] = str(i['_id'])
                     questions_list.append(i)
-                print(questions_list)
                 return jsonify({'message': 'Questions found', 'questions': questions_list}), 200
             else:
                 return jsonify({'message': 'You have no questions'}), 200

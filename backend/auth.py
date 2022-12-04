@@ -53,7 +53,7 @@ def login(UserRecords):
 def logout():
     return jsonify({'message': 'Logout successful'}), 200
 
-
+'''
 def create_profile(UserProfiles):
     try:
         if request:
@@ -197,3 +197,5 @@ def modify_profile(UserProfiles):
     except Exception as e:
         print(e)
         return jsonify({'error': "Something went wrong"}), 400
+
+'''

@@ -85,11 +85,13 @@ def delete_file(Files):
         if request:
             req = request.get_json()
             df = Files.find_one_and_delete({"filename": req["filename"]})
-
             if df == None:
                 return jsonify({"error": "No such Job ID found for this user's email"}), 500
             else:
-                s3.delete_object(Bucket=bucket_name, Key=req["filename"])
+                try:
+                    s3.delete_object(Bucket=bucket_name, Key=req["filename"])
+                except:
+                    pass
                 return jsonify({"message": "File Deleted Successfully"}), 200
     except Exception:
         return jsonify({'error': 'Something went wrong'}), 500

@@ -2,11 +2,11 @@
 |-----|---------------|--------|
 |Video1|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md| 
 |Xfold improvemnt |3| Improvements : Manage file feature added|
-|Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/commit-activity|
-|Use of style checkers|3|https://github.com/ekanshsinghal/se-group26-proj1/graphs/contributors|
-|Use of code formatters.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
-|Use of syntax checkers.|3|https://github.com/ekanshsinghal/se-group26-proj1/issues
-|Use of code coverage|3|https://github.com/ekanshsinghal/se-group26-proj1/blob/main/README.md|
+|Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs|
+|Use of style checkers|3|pycodestyle, flake8|
+|Use of code formatters.|3|Prettier code formatter used
+|Use of syntax checkers.|3|pylint, eslint used to check the code syntax
+|Use of code coverage|3|https://github.com/jayrajmulani/se-group1-project2|
 |Other automated analysis tools |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... |3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs
 |but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/ekanshsinghal/se-group26-proj1/tree/main/docs|

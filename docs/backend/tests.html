@@ -31,11 +31,11 @@ from flask import app
 # from flask.typing import StatusCode
 import unittest
 import sys, os, inspect
+import json
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
-
 from backend.app import app
 
 class FlaskTest(unittest.TestCase):
@@ -73,7 +73,142 @@ class FlaskTest(unittest.TestCase):
             # User already present
             self.assertEqual(statuscode, 400)
 
+    def testdeletewrongApplication(self):
+        tester = app.test_client(self)
+        response = tester.post(&#34;/delete_application&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+    
 
+    def testViewApplication(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_applications?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+
+    def testViewQuestions(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_questions?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testdeletewrongQuestions(self):
+        tester = app.test_client(self)
+        response = tester.post(&#34;/delete_question&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
+    
+    def testAddApplication(self):
+        tester = app.test_client(self)
+        req = {}
+        req[&#34;companyName&#34;] = &#34;Edusetu&#34;
+        req[&#34;jobTitle&#34;] = &#34;Test&#34;
+        req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+        req[&#34;jobId&#34;] = &#34;12345678&#34;
+        req[&#34;url&#34;] = &#34;www.google.com&#34;
+        req[&#34;status&#34;] = &#34;applied&#34;
+        urlToSend = &#34;/add_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+   
+
+    def testAddQuestion(self):
+        tester = app.test_client(self)
+        req = {}
+        req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+        req[&#34;question&#34;] = &#34;Why do you want to apply to this Job?&#34;
+        req[&#34;answer&#34;] = &#34;Because i want money and you are Hiring&#34;
+        urlToSend = &#34;/add_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testModifyApplication(self):
+        tester = app.test_client(self)
+        req = {
+            &#34;companyName&#34;: &#34;k&#34;,
+            &#34;jobTitle&#34;: &#34;jl&#34;,
+            &#34;jobId&#34;: &#34;nln&#34;,
+            &#34;description&#34;: &#34;lkn&#34;,
+            &#34;url&#34;: &#34;lknl&#34;,
+            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+            &#34;status&#34;: &#34;interview&#34;,
+            &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
+            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         &#34;question&#34;: &#34;Q1&#34;,
+         &#34;answer&#34;: &#34;A1&#34;,
+        &#34;_id&#34;: &#34;638bafe50012ef455196cc6e&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testWrongModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         &#34;question&#34;: &#34;Q1&#34;,
+         &#34;answer&#34;: &#34;A1&#34;,
+        &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        # Since the ID doesnt exist. 
+        self.assertEqual(statuscode, 400)
+    
+    def testWrongModifyApplication(self):
+        tester = app.test_client(self)
+        req = {
+            &#34;companyName&#34;: &#34;k&#34;,
+            &#34;jobTitle&#34;: &#34;jl&#34;,
+            &#34;jobId&#34;: &#34;nln&#34;,
+            &#34;description&#34;: &#34;lkn&#34;,
+            &#34;url&#34;: &#34;lknl&#34;,
+            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+            &#34;status&#34;: &#34;interview&#34;,
+            &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+    
+    def testviewFiles(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_files?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testEmptyFiles(self):
+        tester = app.test_client(self)
+        email = &#34;a@a.com&#34;
+        urlToSend = f&#34;/view_files?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+      
 if __name__==&#34;__main__&#34;:
      unittest.main()</code></pre>
 </details>
@@ -157,7 +292,143 @@ not have a method with the specified name.</p></div>
             self.assertEqual(statuscode, 200)
         if statuscode == 400:
             # User already present
-            self.assertEqual(statuscode, 400)</code></pre>
+            self.assertEqual(statuscode, 400)
+
+    def testdeletewrongApplication(self):
+        tester = app.test_client(self)
+        response = tester.post(&#34;/delete_application&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+    
+
+    def testViewApplication(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_applications?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+
+    def testViewQuestions(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_questions?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testdeletewrongQuestions(self):
+        tester = app.test_client(self)
+        response = tester.post(&#34;/delete_question&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
+    
+    def testAddApplication(self):
+        tester = app.test_client(self)
+        req = {}
+        req[&#34;companyName&#34;] = &#34;Edusetu&#34;
+        req[&#34;jobTitle&#34;] = &#34;Test&#34;
+        req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+        req[&#34;jobId&#34;] = &#34;12345678&#34;
+        req[&#34;url&#34;] = &#34;www.google.com&#34;
+        req[&#34;status&#34;] = &#34;applied&#34;
+        urlToSend = &#34;/add_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+   
+
+    def testAddQuestion(self):
+        tester = app.test_client(self)
+        req = {}
+        req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+        req[&#34;question&#34;] = &#34;Why do you want to apply to this Job?&#34;
+        req[&#34;answer&#34;] = &#34;Because i want money and you are Hiring&#34;
+        urlToSend = &#34;/add_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testModifyApplication(self):
+        tester = app.test_client(self)
+        req = {
+            &#34;companyName&#34;: &#34;k&#34;,
+            &#34;jobTitle&#34;: &#34;jl&#34;,
+            &#34;jobId&#34;: &#34;nln&#34;,
+            &#34;description&#34;: &#34;lkn&#34;,
+            &#34;url&#34;: &#34;lknl&#34;,
+            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+            &#34;status&#34;: &#34;interview&#34;,
+            &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
+            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         &#34;question&#34;: &#34;Q1&#34;,
+         &#34;answer&#34;: &#34;A1&#34;,
+        &#34;_id&#34;: &#34;638bafe50012ef455196cc6e&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+    
+    def testWrongModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         &#34;question&#34;: &#34;Q1&#34;,
+         &#34;answer&#34;: &#34;A1&#34;,
+        &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_question&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        # Since the ID doesnt exist. 
+        self.assertEqual(statuscode, 400)
+    
+    def testWrongModifyApplication(self):
+        tester = app.test_client(self)
+        req = {
+            &#34;companyName&#34;: &#34;k&#34;,
+            &#34;jobTitle&#34;: &#34;jl&#34;,
+            &#34;jobId&#34;: &#34;nln&#34;,
+            &#34;description&#34;: &#34;lkn&#34;,
+            &#34;url&#34;: &#34;lknl&#34;,
+            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+            &#34;status&#34;: &#34;interview&#34;,
+            &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        }
+        urlToSend = &#34;/modify_application&#34;
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+    
+    def testviewFiles(self):
+        tester = app.test_client(self)
+        email = &#34;dhrumilshah1234@gmail.com&#34;
+        urlToSend = f&#34;/view_files?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testEmptyFiles(self):
+        tester = app.test_client(self)
+        email = &#34;a@a.com&#34;
+        urlToSend = f&#34;/view_files?email={email}&#34;
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -165,6 +436,69 @@ not have a method with the specified name.</p></div>
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="backend.tests.FlaskTest.testAddApplication"><code class="name flex">
+<span>def <span class="ident">testAddApplication</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testAddApplication(self):
+    tester = app.test_client(self)
+    req = {}
+    req[&#34;companyName&#34;] = &#34;Edusetu&#34;
+    req[&#34;jobTitle&#34;] = &#34;Test&#34;
+    req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+    req[&#34;jobId&#34;] = &#34;12345678&#34;
+    req[&#34;url&#34;] = &#34;www.google.com&#34;
+    req[&#34;status&#34;] = &#34;applied&#34;
+    urlToSend = &#34;/add_application&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testAddQuestion"><code class="name flex">
+<span>def <span class="ident">testAddQuestion</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testAddQuestion(self):
+    tester = app.test_client(self)
+    req = {}
+    req[&#34;email&#34;] = &#34;dhrumilshah1234@gmail.com&#34;
+    req[&#34;question&#34;] = &#34;Why do you want to apply to this Job?&#34;
+    req[&#34;answer&#34;] = &#34;Because i want money and you are Hiring&#34;
+    urlToSend = &#34;/add_question&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testEmptyFiles"><code class="name flex">
+<span>def <span class="ident">testEmptyFiles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testEmptyFiles(self):
+    tester = app.test_client(self)
+    email = &#34;a@a.com&#34;
+    urlToSend = f&#34;/view_files?email={email}&#34;
+    response = tester.get(urlToSend)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
 <dt id="backend.tests.FlaskTest.testLogin"><code class="name flex">
 <span>def <span class="ident">testLogin</span></span>(<span>self)</span>
 </code></dt>
@@ -180,6 +514,57 @@ not have a method with the specified name.</p></div>
     statuscode = response.status_code
     self.assertEqual(statuscode, 200)
     # print(statuscode)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testModifyApplication"><code class="name flex">
+<span>def <span class="ident">testModifyApplication</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testModifyApplication(self):
+    tester = app.test_client(self)
+    req = {
+        &#34;companyName&#34;: &#34;k&#34;,
+        &#34;jobTitle&#34;: &#34;jl&#34;,
+        &#34;jobId&#34;: &#34;nln&#34;,
+        &#34;description&#34;: &#34;lkn&#34;,
+        &#34;url&#34;: &#34;lknl&#34;,
+        &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+        &#34;status&#34;: &#34;interview&#34;,
+        &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+    }
+    urlToSend = &#34;/modify_application&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testModifyQuestion"><code class="name flex">
+<span>def <span class="ident">testModifyQuestion</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testModifyQuestion(self):
+    tester = app.test_client(self)
+    req = {
+     &#34;question&#34;: &#34;Q1&#34;,
+     &#34;answer&#34;: &#34;A1&#34;,
+    &#34;_id&#34;: &#34;638bafe50012ef455196cc6e&#34;,
+    &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+    }
+    urlToSend = &#34;/modify_question&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
 </details>
 </dd>
 <dt id="backend.tests.FlaskTest.testRegister"><code class="name flex">
@@ -210,6 +595,42 @@ not have a method with the specified name.</p></div>
         self.assertEqual(statuscode, 400)</code></pre>
 </details>
 </dd>
+<dt id="backend.tests.FlaskTest.testViewApplication"><code class="name flex">
+<span>def <span class="ident">testViewApplication</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testViewApplication(self):
+    tester = app.test_client(self)
+    email = &#34;dhrumilshah1234@gmail.com&#34;
+    urlToSend = f&#34;/view_applications?email={email}&#34;
+    response = tester.get(urlToSend)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testViewQuestions"><code class="name flex">
+<span>def <span class="ident">testViewQuestions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testViewQuestions(self):
+    tester = app.test_client(self)
+    email = &#34;dhrumilshah1234@gmail.com&#34;
+    urlToSend = f&#34;/view_questions?email={email}&#34;
+    response = tester.get(urlToSend)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
+</details>
+</dd>
 <dt id="backend.tests.FlaskTest.testWrongLogin"><code class="name flex">
 <span>def <span class="ident">testWrongLogin</span></span>(<span>self)</span>
 </code></dt>
@@ -226,6 +647,108 @@ not have a method with the specified name.</p></div>
     # User account not found
     self.assertEqual(statuscode, 400)
     # print(statuscode)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testWrongModifyApplication"><code class="name flex">
+<span>def <span class="ident">testWrongModifyApplication</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testWrongModifyApplication(self):
+    tester = app.test_client(self)
+    req = {
+        &#34;companyName&#34;: &#34;k&#34;,
+        &#34;jobTitle&#34;: &#34;jl&#34;,
+        &#34;jobId&#34;: &#34;nln&#34;,
+        &#34;description&#34;: &#34;lkn&#34;,
+        &#34;url&#34;: &#34;lknl&#34;,
+        &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
+        &#34;status&#34;: &#34;interview&#34;,
+        &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+    }
+    urlToSend = &#34;/modify_application&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 400)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testWrongModifyQuestion"><code class="name flex">
+<span>def <span class="ident">testWrongModifyQuestion</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testWrongModifyQuestion(self):
+    tester = app.test_client(self)
+    req = {
+     &#34;question&#34;: &#34;Q1&#34;,
+     &#34;answer&#34;: &#34;A1&#34;,
+    &#34;_id&#34;: &#34;IDONTEXIST&#34;,
+    &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+    }
+    urlToSend = &#34;/modify_question&#34;
+    response = tester.post(urlToSend, json = req)
+    statuscode = response.status_code
+    # Since the ID doesnt exist. 
+    self.assertEqual(statuscode, 400)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testdeletewrongApplication"><code class="name flex">
+<span>def <span class="ident">testdeletewrongApplication</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testdeletewrongApplication(self):
+    tester = app.test_client(self)
+    response = tester.post(&#34;/delete_application&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 400)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testdeletewrongQuestions"><code class="name flex">
+<span>def <span class="ident">testdeletewrongQuestions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testdeletewrongQuestions(self):
+    tester = app.test_client(self)
+    response = tester.post(&#34;/delete_question&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 400)</code></pre>
+</details>
+</dd>
+<dt id="backend.tests.FlaskTest.testviewFiles"><code class="name flex">
+<span>def <span class="ident">testviewFiles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testviewFiles(self):
+    tester = app.test_client(self)
+    email = &#34;dhrumilshah1234@gmail.com&#34;
+    urlToSend = f&#34;/view_files?email={email}&#34;
+    response = tester.get(urlToSend)
+    statuscode = response.status_code
+    self.assertEqual(statuscode, 200)</code></pre>
 </details>
 </dd>
 </dl>
@@ -249,9 +772,21 @@ not have a method with the specified name.</p></div>
 <li>
 <h4><code><a title="backend.tests.FlaskTest" href="#backend.tests.FlaskTest">FlaskTest</a></code></h4>
 <ul class="">
+<li><code><a title="backend.tests.FlaskTest.testAddApplication" href="#backend.tests.FlaskTest.testAddApplication">testAddApplication</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testAddQuestion" href="#backend.tests.FlaskTest.testAddQuestion">testAddQuestion</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testEmptyFiles" href="#backend.tests.FlaskTest.testEmptyFiles">testEmptyFiles</a></code></li>
 <li><code><a title="backend.tests.FlaskTest.testLogin" href="#backend.tests.FlaskTest.testLogin">testLogin</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testModifyApplication" href="#backend.tests.FlaskTest.testModifyApplication">testModifyApplication</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testModifyQuestion" href="#backend.tests.FlaskTest.testModifyQuestion">testModifyQuestion</a></code></li>
 <li><code><a title="backend.tests.FlaskTest.testRegister" href="#backend.tests.FlaskTest.testRegister">testRegister</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testViewApplication" href="#backend.tests.FlaskTest.testViewApplication">testViewApplication</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testViewQuestions" href="#backend.tests.FlaskTest.testViewQuestions">testViewQuestions</a></code></li>
 <li><code><a title="backend.tests.FlaskTest.testWrongLogin" href="#backend.tests.FlaskTest.testWrongLogin">testWrongLogin</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testWrongModifyApplication" href="#backend.tests.FlaskTest.testWrongModifyApplication">testWrongModifyApplication</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testWrongModifyQuestion" href="#backend.tests.FlaskTest.testWrongModifyQuestion">testWrongModifyQuestion</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testdeletewrongApplication" href="#backend.tests.FlaskTest.testdeletewrongApplication">testdeletewrongApplication</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testdeletewrongQuestions" href="#backend.tests.FlaskTest.testdeletewrongQuestions">testdeletewrongQuestions</a></code></li>
+<li><code><a title="backend.tests.FlaskTest.testviewFiles" href="#backend.tests.FlaskTest.testviewFiles">testviewFiles</a></code></li>
 </ul>
 </li>
 </ul>

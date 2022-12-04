@@ -82,9 +82,12 @@ def view_files(Files):
                     i[&#39;filename&#39;] = i[&#39;filename&#39;]
                     i[&#39;_id&#39;] = str(i[&#39;_id&#39;])
                     files.append(i)
-                return jsonify({&#39;message&#39;: &#39;Files found&#39;, &#39;files&#39;: files}), 200
+                if files:
+                    return jsonify({&#39;message&#39;: &#39;Files found&#39;, &#39;files&#39;: files}), 200
+                else:
+                    return jsonify({&#39;message&#39;: &#39;No Files found&#39;, &#39;files&#39;: files}), 200
             else:
-                return jsonify({&#39;message&#39;: &#39;You have no files&#39;}), 200
+                return jsonify({&#39;message&#39;: &#39;Email Doesnt Exist&#39;}), 400
     except Exception as e:
         print(e)
         return jsonify({&#39;error&#39;: &#34;Something went wrong&#34;}), 500
@@ -246,9 +249,12 @@ def delete_file(Files):
                     i[&#39;filename&#39;] = i[&#39;filename&#39;]
                     i[&#39;_id&#39;] = str(i[&#39;_id&#39;])
                     files.append(i)
-                return jsonify({&#39;message&#39;: &#39;Files found&#39;, &#39;files&#39;: files}), 200
+                if files:
+                    return jsonify({&#39;message&#39;: &#39;Files found&#39;, &#39;files&#39;: files}), 200
+                else:
+                    return jsonify({&#39;message&#39;: &#39;No Files found&#39;, &#39;files&#39;: files}), 200
             else:
-                return jsonify({&#39;message&#39;: &#39;You have no files&#39;}), 200
+                return jsonify({&#39;message&#39;: &#39;Email Doesnt Exist&#39;}), 400
     except Exception as e:
         print(e)
         return jsonify({&#39;error&#39;: &#34;Something went wrong&#34;}), 500</code></pre>

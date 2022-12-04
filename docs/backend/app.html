@@ -110,7 +110,7 @@ def modify_application():
 def modify_question():
     return questions.modify_question(Questions)
 
-
+&#39;&#39;&#39;
 @app.route(&#34;/create_profile&#34;, methods=[&#34;post&#34;])
 def create_profile():
     return auth.create_profile(UserProfiles)
@@ -130,6 +130,7 @@ def modify_profile():
 def clear_profile():
     return auth.clear_profile(UserProfiles, UserRecords)
 
+&#39;&#39;&#39;
 
 @app.route(&#34;/upload_file&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def upload_file():
@@ -195,34 +196,6 @@ def add_application():
 <pre><code class="python">@app.route(&#34;/add_question&#34;, methods=[&#34;POST&#34;])
 def add_question():
     return questions.add_question(Questions)</code></pre>
-</details>
-</dd>
-<dt id="backend.app.clear_profile"><code class="name flex">
-<span>def <span class="ident">clear_profile</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@app.route(&#34;/clear_profile&#34;, methods=[&#34;POST&#34;])
-def clear_profile():
-    return auth.clear_profile(UserProfiles, UserRecords)</code></pre>
-</details>
-</dd>
-<dt id="backend.app.create_profile"><code class="name flex">
-<span>def <span class="ident">create_profile</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@app.route(&#34;/create_profile&#34;, methods=[&#34;post&#34;])
-def create_profile():
-    return auth.create_profile(UserProfiles)</code></pre>
 </details>
 </dd>
 <dt id="backend.app.delete_application"><code class="name flex">
@@ -344,20 +317,6 @@ def modify_application():
     return applications.modify_application(Applications)</code></pre>
 </details>
 </dd>
-<dt id="backend.app.modify_profile"><code class="name flex">
-<span>def <span class="ident">modify_profile</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@app.route(&#34;/modify_profile&#34;, methods=[&#34;POST&#34;])
-def modify_profile():
-    return auth.modify_profile(UserProfiles)</code></pre>
-</details>
-</dd>
 <dt id="backend.app.modify_question"><code class="name flex">
 <span>def <span class="ident">modify_question</span></span>(<span>)</span>
 </code></dt>
@@ -428,20 +387,6 @@ def view_files():
     return files.view_files(Files)</code></pre>
 </details>
 </dd>
-<dt id="backend.app.view_profile"><code class="name flex">
-<span>def <span class="ident">view_profile</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@app.route(&#34;/view_profile&#34;, methods=[&#34;GET&#34;])
-def view_profile():
-    return auth.view_profile(UserProfiles)</code></pre>
-</details>
-</dd>
 <dt id="backend.app.view_questions"><code class="name flex">
 <span>def <span class="ident">view_questions</span></span>(<span>)</span>
 </code></dt>
@@ -476,8 +421,6 @@ def view_questions():
 <ul class="two-column">
 <li><code><a title="backend.app.add_application" href="#backend.app.add_application">add_application</a></code></li>
 <li><code><a title="backend.app.add_question" href="#backend.app.add_question">add_question</a></code></li>
-<li><code><a title="backend.app.clear_profile" href="#backend.app.clear_profile">clear_profile</a></code></li>
-<li><code><a title="backend.app.create_profile" href="#backend.app.create_profile">create_profile</a></code></li>
 <li><code><a title="backend.app.delete_application" href="#backend.app.delete_application">delete_application</a></code></li>
 <li><code><a title="backend.app.delete_file" href="#backend.app.delete_file">delete_file</a></code></li>
 <li><code><a title="backend.app.delete_question" href="#backend.app.delete_question">delete_question</a></code></li>
@@ -486,13 +429,11 @@ def view_questions():
 <li><code><a title="backend.app.login" href="#backend.app.login">login</a></code></li>
 <li><code><a title="backend.app.logout" href="#backend.app.logout">logout</a></code></li>
 <li><code><a title="backend.app.modify_application" href="#backend.app.modify_application">modify_application</a></code></li>
-<li><code><a title="backend.app.modify_profile" href="#backend.app.modify_profile">modify_profile</a></code></li>
 <li><code><a title="backend.app.modify_question" href="#backend.app.modify_question">modify_question</a></code></li>
 <li><code><a title="backend.app.register" href="#backend.app.register">register</a></code></li>
 <li><code><a title="backend.app.upload_file" href="#backend.app.upload_file">upload_file</a></code></li>
 <li><code><a title="backend.app.view_applications" href="#backend.app.view_applications">view_applications</a></code></li>
 <li><code><a title="backend.app.view_files" href="#backend.app.view_files">view_files</a></code></li>
-<li><code><a title="backend.app.view_profile" href="#backend.app.view_profile">view_profile</a></code></li>
 <li><code><a title="backend.app.view_questions" href="#backend.app.view_questions">view_questions</a></code></li>
 </ul>
 </li>

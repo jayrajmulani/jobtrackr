@@ -42,9 +42,10 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 </p>
 
 
-<!-- ## Basic Design
-![image](https://github.com/ekanshsinghal/se-group26-proj1/blob/main/resources/Design.png)
+ ## Basic Design
+![image](https://github.com/jayrajmulani/se-group1-project2/tree/main/ui/assets/Block.jpg)
 
+<!--
 ## Roadmap
 ![image](https://github.com/ekanshsinghal/se-group26-proj1/blob/main/resources/Features.png) -->
 

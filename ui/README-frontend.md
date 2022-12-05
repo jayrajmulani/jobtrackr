@@ -27,3 +27,54 @@ It bundles React in production mode and optimizes the build for the best perform
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+# Directory Structure
+
+<pre>
+. 
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └──index.html
+└── src
+    ├── App.jsx
+    ├── App.scss
+    ├── Components
+    │   ├── AddApplication
+    │   │   ├── AddApplication.jsx
+    │   │   └── EditApplication.jsx
+    │   ├── AddQuestion
+    │   │   ├── AddQuestion.jsx
+    │   │   └── EditQuestion
+    │   ├── LandingPage
+    │   │   ├── LandingPage.jsx
+    │   │   └──LandingPage.scss
+    │   ├── LoginPage
+    │   │   ├── LoginPage.jsx
+    │   │   └──LoginPage.scss
+    │   ├── ManageFiles
+    │   │   └── ManageFiles.jsx
+    │   ├── Profile
+    │   │   ├── Profile.jsx
+    │   │   └── Profile.scss    
+    │   ├── QA
+    │   │   ├── QA.jsx
+    │   │   └── QA.scss    
+    │   ├── QuestionAnswers
+    │   │   └── QuestionAnswers.jsx
+    │   ├── RegisterPage
+    │   │   ├── RegisterPage.jsx
+    │   │   └── RegisterPage.scss    
+    │   └── SavedJobs
+    │       ├── AddSavedJob.jsx
+    │       ├── EditSavedJob.jsx
+    │       ├── SavedJob.jsx
+    │       └── SavedJob.scss
+    ├── config.js
+    ├── index.js
+    ├── index.scss    
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js
+</pre>

@@ -109,61 +109,145 @@ def add_application():
 
 @app.route("/add_question", methods=["POST"])
 def add_question():
+    
+    '''
+    ```
+    Add question to a profile with selected email ID.  
+    ```
+    '''
+    
     return questions.add_question(Questions)
 
 
 @app.route("/delete_application", methods=["POST"])
 def delete_application():
+    
+    '''
+    ```
+    Delete application for an account associated with selected email ID.  
+    ```
+    '''
+    
     return applications.delete_application(Applications)
 
 
 @app.route("/delete_question", methods=["POST"])
 def delete_question():
+    
+    '''
+    ```
+    Delete question to a profile with selected email ID.  
+    ```
+    '''
+    
     return questions.delete_question(Questions)
 
 
 @app.route("/modify_application", methods=["POST"])
 def modify_application():
+    
+    '''
+    ```
+    Modify application for an account associated with selected email ID.  
+    ```
+    '''
+    
     return applications.modify_application(Applications)
 
 
 @app.route("/modify_question", methods=["POST"])
 def modify_question():
+    
+    '''
+    ```
+    Modify question to a profile with selected email ID.  
+    ```
+    '''
+    
     return questions.modify_question(Questions)
 
 
 @app.route("/create_profile", methods=["post"])
 def create_profile():
+    
+    '''
+    ```
+    Creating profile which includes adding one's personal details and your socials URL, work experience etc.
+    ```
+    '''
+    
     return auth.create_profile(UserProfiles)
 
 
 @app.route("/view_profile", methods=["GET"])
 def view_profile():
+    
+    '''
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    '''
+    
     return auth.view_profile(UserProfiles)
 
 
 @app.route("/modify_profile", methods=["POST"])
 def modify_profile():
+    
+    '''
+    ```
+    Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    '''
+    
     return auth.modify_profile(UserProfiles)
 
 
 @app.route("/clear_profile", methods=["POST"])
 def clear_profile():
+    
+    '''
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    '''
+    
     return auth.clear_profile(UserProfiles, UserRecords)
 
 
 @app.route("/upload_file", methods=["GET", "POST"])
 def upload_file():
+    
+    '''
+    ```
+    Uploads file to Amazon S3 bucket
+    ```
+    '''
+    
     return files.upload_file(UserRecords, Files)
 
 
 @app.route("/view_files", methods=["GET"])
 def view_files():
+    
+    '''
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    '''
+    
     return files.view_files(Files)
 
 
 @app.route("/download_file", methods=["POST"])
 def download_file():
+    
+    '''
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    '''
+    
     @after_this_request
     def delete(response):
         try:
@@ -176,6 +260,13 @@ def download_file():
 
 @app.route("/delete_file", methods=["POST"])
 def delete_file():
+    
+    '''
+    ```
+    Delete one's files from cloud storage
+    ```
+    '''
+    
     return files.delete_file(Files)
 
 

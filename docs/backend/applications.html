@@ -32,6 +32,25 @@ from pymongo import ReturnDocument
 
 
 def view_applications(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)
@@ -52,6 +71,32 @@ def view_applications(Applications):
 
 
 def add_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -76,6 +121,26 @@ def add_application(Applications):
 
 
 def delete_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        jobId: number
+    
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -93,6 +158,33 @@ def delete_application(Applications):
 
 
 def modify_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
+    
     try:
         if request:
             req = request.get_json()
@@ -132,12 +224,58 @@ def modify_application(Applications):
 <span>def <span class="ident">add_application</span></span>(<span>Applications)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: email,
+    companyName: string,
+    jobTitle: string,
+    jobId: number,
+    description: string,
+    url: string,
+    date: date,
+    status: string
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -165,12 +303,46 @@ def modify_application(Applications):
 <span>def <span class="ident">delete_application</span></span>(<span>Applications)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: email,
+    jobId: number
+
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        jobId: number
+    
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -191,12 +363,59 @@ def modify_application(Applications):
 <span>def <span class="ident">modify_application</span></span>(<span>Applications)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: email,
+    companyName: string,
+    jobTitle: string,
+    jobId: number,
+    description: string,
+    url: string,
+    date: date,
+    status: string
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def modify_application(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
+    
     try:
         if request:
             req = request.get_json()
@@ -229,12 +448,44 @@ def modify_application(Applications):
 <span>def <span class="ident">view_applications</span></span>(<span>Applications)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def view_applications(Applications):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)

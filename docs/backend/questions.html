@@ -32,6 +32,23 @@ from pymongo import ReturnDocument
 
 
 def delete_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string,  
+        id: number
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -50,6 +67,24 @@ def delete_question(Questions):
 
 
 def add_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -69,6 +104,25 @@ def add_question(Questions):
 
 
 def view_questions(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)
@@ -88,6 +142,28 @@ def view_questions(Questions):
 
 
 def modify_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+        id: number
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -122,12 +198,42 @@ def modify_question(Questions):
 <span>def <span class="ident">add_question</span></span>(<span>Questions)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string  
+    question: string
+    answer: string
+}
+Response:
+{
+    status: boolean
+    data: message (Success / Error message as per status)
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -150,12 +256,40 @@ def modify_question(Questions):
 <span>def <span class="ident">delete_question</span></span>(<span>Questions)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string,  
+    id: number
+}
+Response:
+{
+    status: boolean
+    data: message (Success / Error message as per status)
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string,  
+        id: number
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -177,12 +311,50 @@ def modify_question(Questions):
 <span>def <span class="ident">modify_question</span></span>(<span>Questions)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string  
+    id: number
+    question: string
+    answer: string
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def modify_question(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+        id: number
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -210,12 +382,44 @@ def modify_question(Questions):
 <span>def <span class="ident">view_questions</span></span>(<span>Questions)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string  
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 400
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def view_questions(Questions):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)

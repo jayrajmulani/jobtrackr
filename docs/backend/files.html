@@ -40,6 +40,30 @@ bucket_name = &#34;job-tracker-resume-upload&#34;
 
 
 def upload_file(UserRecords, Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string,
+        start: string,
+        file: file,
+        end: string,
+        filename: string
+        
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         file = request.files[&#39;file&#39;]
         email = str(request.files[&#39;email&#39;].read())
@@ -72,6 +96,25 @@ def upload_file(UserRecords, Files):
 
 
 def view_files(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)
@@ -94,6 +137,28 @@ def view_files(Files):
 
 
 def download_file(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+         
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+        status: 501
+        data: Authorization required
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -112,6 +177,24 @@ def download_file(Files):
 
 
 def delete_file(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    { 
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -139,12 +222,42 @@ def delete_file(Files):
 <span>def <span class="ident">delete_file</span></span>(<span>Files)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{ 
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 500
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete_file(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    { 
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -165,12 +278,50 @@ def delete_file(Files):
 <span>def <span class="ident">download_file</span></span>(<span>Files)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 500
+    data: Error message
+
+    status: 501
+    data: Authorization required
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def download_file(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+         
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+        status: 501
+        data: Authorization required
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             req = request.get_json()
@@ -192,12 +343,54 @@ def delete_file(Files):
 <span>def <span class="ident">upload_file</span></span>(<span>UserRecords, Files)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string,
+    start: string,
+    file: file,
+    end: string,
+    filename: string
+
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 500
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def upload_file(UserRecords, Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string,
+        start: string,
+        file: file,
+        end: string,
+        filename: string
+        
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         file = request.files[&#39;file&#39;]
         email = str(request.files[&#39;email&#39;].read())
@@ -233,12 +426,44 @@ def delete_file(Files):
 <span>def <span class="ident">view_files</span></span>(<span>Files)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Request:
+{
+    email: string  
+}
+Response:
+{
+    status: 200
+    data: Success message
+
+    status: 500
+    data: Error message
+
+}
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def view_files(Files):
+    
+    &#39;&#39;&#39;
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+    }
+    ```
+    &#39;&#39;&#39;
+    
     try:
         if request:
             email = request.args.get(&#34;email&#34;)

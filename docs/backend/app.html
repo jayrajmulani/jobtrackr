@@ -53,97 +53,229 @@ Files = db.file
 
 @app.route(&#34;/&#34;)
 def hello():
+    
+    &#39;&#39;&#39;
+    ```
+    Welcome Page 
+    ```
+    &#39;&#39;&#39;
+    
     return &#34;Hello, Track your job on :3000&#34;
 
 
 @app.route(&#34;/register&#34;, methods=[&#34;post&#34;])
 def register():
+    
+    &#39;&#39;&#39;
+    ```
+    Register if you do not already have an account 
+    ```
+    &#39;&#39;&#39;
+    
     return auth.register(UserRecords)
 
 
 @app.route(&#34;/login&#34;, methods=[&#34;POST&#34;])
 def login():
+    
+    &#39;&#39;&#39;
+    ```
+    Login to get to the dashboard to access various functions
+    ```
+    &#39;&#39;&#39;
+    
     return auth.login(UserRecords)
 
 
 @app.route(&#34;/logout&#34;, methods=[&#34;POST&#34;, &#34;GET&#34;])
 def logout():
+    
+    &#39;&#39;&#39;
+    ```
+    Log out of your account
+    ```
+    &#39;&#39;&#39;
+    
     return auth.logout()
 
 
 @app.route(&#34;/view_applications&#34;, methods=[&#34;GET&#34;])
 def view_applications():
+    
+    &#39;&#39;&#39;
+    ```
+    View applications associated with the selected email ID 
+    ```
+    &#39;&#39;&#39;
+    
     return applications.view_applications(Applications)
 
 
 @app.route(&#34;/view_questions&#34;, methods=[&#34;GET&#34;])
 def view_questions():
+    
+    &#39;&#39;&#39;
+    ```
+    View questions associated with the selected email ID 
+    ```
+    &#39;&#39;&#39;
+    
     return questions.view_questions(Questions)
 
 
 @app.route(&#34;/add_application&#34;, methods=[&#34;POST&#34;])
 def add_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Add application to an account with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.add_application(Applications)
 
 
 @app.route(&#34;/add_question&#34;, methods=[&#34;POST&#34;])
 def add_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Add question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.add_question(Questions)
 
 
 @app.route(&#34;/delete_application&#34;, methods=[&#34;POST&#34;])
 def delete_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete application for an account associated with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.delete_application(Applications)
 
 
 @app.route(&#34;/delete_question&#34;, methods=[&#34;POST&#34;])
 def delete_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.delete_question(Questions)
 
 
 @app.route(&#34;/modify_application&#34;, methods=[&#34;POST&#34;])
 def modify_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify application for an account associated with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.modify_application(Applications)
 
 
 @app.route(&#34;/modify_question&#34;, methods=[&#34;POST&#34;])
 def modify_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.modify_question(Questions)
 
-&#39;&#39;&#39;
+
 @app.route(&#34;/create_profile&#34;, methods=[&#34;post&#34;])
 def create_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    Creating profile which includes adding one&#39;s personal details and your socials URL, work experience etc.
+    ```
+    &#39;&#39;&#39;
+    
     return auth.create_profile(UserProfiles)
 
 
 @app.route(&#34;/view_profile&#34;, methods=[&#34;GET&#34;])
 def view_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
     return auth.view_profile(UserProfiles)
 
 
 @app.route(&#34;/modify_profile&#34;, methods=[&#34;POST&#34;])
 def modify_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
     return auth.modify_profile(UserProfiles)
 
 
 @app.route(&#34;/clear_profile&#34;, methods=[&#34;POST&#34;])
 def clear_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
     return auth.clear_profile(UserProfiles, UserRecords)
 
-&#39;&#39;&#39;
 
 @app.route(&#34;/upload_file&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def upload_file():
+    
+    &#39;&#39;&#39;
+    ```
+    Uploads file to Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     return files.upload_file(UserRecords, Files)
 
 
 @app.route(&#34;/view_files&#34;, methods=[&#34;GET&#34;])
 def view_files():
+    
+    &#39;&#39;&#39;
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     return files.view_files(Files)
 
 
 @app.route(&#34;/download_file&#34;, methods=[&#34;POST&#34;])
 def download_file():
+    
+    &#39;&#39;&#39;
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     @after_this_request
     def delete(response):
         try:
@@ -156,6 +288,13 @@ def download_file():
 
 @app.route(&#34;/delete_file&#34;, methods=[&#34;POST&#34;])
 def delete_file():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete one&#39;s files from cloud storage
+    ```
+    &#39;&#39;&#39;
+    
     return files.delete_file(Files)
 
 
@@ -174,13 +313,21 @@ if __name__ == &#34;__main__&#34;:
 <span>def <span class="ident">add_application</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Add application to an account with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/add_application&#34;, methods=[&#34;POST&#34;])
 def add_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Add application to an account with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.add_application(Applications)</code></pre>
 </details>
 </dd>
@@ -188,27 +335,87 @@ def add_application():
 <span>def <span class="ident">add_question</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Add question to a profile with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/add_question&#34;, methods=[&#34;POST&#34;])
 def add_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Add question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.add_question(Questions)</code></pre>
+</details>
+</dd>
+<dt id="backend.app.clear_profile"><code class="name flex">
+<span>def <span class="ident">clear_profile</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><pre><code>View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.route(&#34;/clear_profile&#34;, methods=[&#34;POST&#34;])
+def clear_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
+    return auth.clear_profile(UserProfiles, UserRecords)</code></pre>
+</details>
+</dd>
+<dt id="backend.app.create_profile"><code class="name flex">
+<span>def <span class="ident">create_profile</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><pre><code>Creating profile which includes adding one's personal details and your socials URL, work experience etc.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.route(&#34;/create_profile&#34;, methods=[&#34;post&#34;])
+def create_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    Creating profile which includes adding one&#39;s personal details and your socials URL, work experience etc.
+    ```
+    &#39;&#39;&#39;
+    
+    return auth.create_profile(UserProfiles)</code></pre>
 </details>
 </dd>
 <dt id="backend.app.delete_application"><code class="name flex">
 <span>def <span class="ident">delete_application</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Delete application for an account associated with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/delete_application&#34;, methods=[&#34;POST&#34;])
 def delete_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete application for an account associated with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.delete_application(Applications)</code></pre>
 </details>
 </dd>
@@ -216,13 +423,21 @@ def delete_application():
 <span>def <span class="ident">delete_file</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Delete one's files from cloud storage
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/delete_file&#34;, methods=[&#34;POST&#34;])
 def delete_file():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete one&#39;s files from cloud storage
+    ```
+    &#39;&#39;&#39;
+    
     return files.delete_file(Files)</code></pre>
 </details>
 </dd>
@@ -230,13 +445,21 @@ def delete_file():
 <span>def <span class="ident">delete_question</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Delete question to a profile with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/delete_question&#34;, methods=[&#34;POST&#34;])
 def delete_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Delete question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.delete_question(Questions)</code></pre>
 </details>
 </dd>
@@ -244,13 +467,21 @@ def delete_question():
 <span>def <span class="ident">download_file</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>View your files directly from cloud - Amazon S3 bucket
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/download_file&#34;, methods=[&#34;POST&#34;])
 def download_file():
+    
+    &#39;&#39;&#39;
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     @after_this_request
     def delete(response):
         try:
@@ -265,13 +496,21 @@ def download_file():
 <span>def <span class="ident">hello</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Welcome Page 
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/&#34;)
 def hello():
+    
+    &#39;&#39;&#39;
+    ```
+    Welcome Page 
+    ```
+    &#39;&#39;&#39;
+    
     return &#34;Hello, Track your job on :3000&#34;</code></pre>
 </details>
 </dd>
@@ -279,13 +518,21 @@ def hello():
 <span>def <span class="ident">login</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Login to get to the dashboard to access various functions
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/login&#34;, methods=[&#34;POST&#34;])
 def login():
+    
+    &#39;&#39;&#39;
+    ```
+    Login to get to the dashboard to access various functions
+    ```
+    &#39;&#39;&#39;
+    
     return auth.login(UserRecords)</code></pre>
 </details>
 </dd>
@@ -293,13 +540,21 @@ def login():
 <span>def <span class="ident">logout</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Log out of your account
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/logout&#34;, methods=[&#34;POST&#34;, &#34;GET&#34;])
 def logout():
+    
+    &#39;&#39;&#39;
+    ```
+    Log out of your account
+    ```
+    &#39;&#39;&#39;
+    
     return auth.logout()</code></pre>
 </details>
 </dd>
@@ -307,27 +562,65 @@ def logout():
 <span>def <span class="ident">modify_application</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Modify application for an account associated with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/modify_application&#34;, methods=[&#34;POST&#34;])
 def modify_application():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify application for an account associated with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return applications.modify_application(Applications)</code></pre>
+</details>
+</dd>
+<dt id="backend.app.modify_profile"><code class="name flex">
+<span>def <span class="ident">modify_profile</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><pre><code>Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.route(&#34;/modify_profile&#34;, methods=[&#34;POST&#34;])
+def modify_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
+    return auth.modify_profile(UserProfiles)</code></pre>
 </details>
 </dd>
 <dt id="backend.app.modify_question"><code class="name flex">
 <span>def <span class="ident">modify_question</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Modify question to a profile with selected email ID.  
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/modify_question&#34;, methods=[&#34;POST&#34;])
 def modify_question():
+    
+    &#39;&#39;&#39;
+    ```
+    Modify question to a profile with selected email ID.  
+    ```
+    &#39;&#39;&#39;
+    
     return questions.modify_question(Questions)</code></pre>
 </details>
 </dd>
@@ -335,13 +628,21 @@ def modify_question():
 <span>def <span class="ident">register</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Register if you do not already have an account 
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/register&#34;, methods=[&#34;post&#34;])
 def register():
+    
+    &#39;&#39;&#39;
+    ```
+    Register if you do not already have an account 
+    ```
+    &#39;&#39;&#39;
+    
     return auth.register(UserRecords)</code></pre>
 </details>
 </dd>
@@ -349,13 +650,21 @@ def register():
 <span>def <span class="ident">upload_file</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>Uploads file to Amazon S3 bucket
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/upload_file&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def upload_file():
+    
+    &#39;&#39;&#39;
+    ```
+    Uploads file to Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     return files.upload_file(UserRecords, Files)</code></pre>
 </details>
 </dd>
@@ -363,13 +672,21 @@ def upload_file():
 <span>def <span class="ident">view_applications</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>View applications associated with the selected email ID 
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/view_applications&#34;, methods=[&#34;GET&#34;])
 def view_applications():
+    
+    &#39;&#39;&#39;
+    ```
+    View applications associated with the selected email ID 
+    ```
+    &#39;&#39;&#39;
+    
     return applications.view_applications(Applications)</code></pre>
 </details>
 </dd>
@@ -377,27 +694,65 @@ def view_applications():
 <span>def <span class="ident">view_files</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>View your files directly from cloud - Amazon S3 bucket
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/view_files&#34;, methods=[&#34;GET&#34;])
 def view_files():
+    
+    &#39;&#39;&#39;
+    ```
+    View your files directly from cloud - Amazon S3 bucket
+    ```
+    &#39;&#39;&#39;
+    
     return files.view_files(Files)</code></pre>
+</details>
+</dd>
+<dt id="backend.app.view_profile"><code class="name flex">
+<span>def <span class="ident">view_profile</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><pre><code>View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.route(&#34;/view_profile&#34;, methods=[&#34;GET&#34;])
+def view_profile():
+    
+    &#39;&#39;&#39;
+    ```
+    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
+    &#39;&#39;&#39;
+    
+    return auth.view_profile(UserProfiles)</code></pre>
 </details>
 </dd>
 <dt id="backend.app.view_questions"><code class="name flex">
 <span>def <span class="ident">view_questions</span></span>(<span>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><pre><code>View questions associated with the selected email ID 
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@app.route(&#34;/view_questions&#34;, methods=[&#34;GET&#34;])
 def view_questions():
+    
+    &#39;&#39;&#39;
+    ```
+    View questions associated with the selected email ID 
+    ```
+    &#39;&#39;&#39;
+    
     return questions.view_questions(Questions)</code></pre>
 </details>
 </dd>
@@ -421,6 +776,8 @@ def view_questions():
 <ul class="two-column">
 <li><code><a title="backend.app.add_application" href="#backend.app.add_application">add_application</a></code></li>
 <li><code><a title="backend.app.add_question" href="#backend.app.add_question">add_question</a></code></li>
+<li><code><a title="backend.app.clear_profile" href="#backend.app.clear_profile">clear_profile</a></code></li>
+<li><code><a title="backend.app.create_profile" href="#backend.app.create_profile">create_profile</a></code></li>
 <li><code><a title="backend.app.delete_application" href="#backend.app.delete_application">delete_application</a></code></li>
 <li><code><a title="backend.app.delete_file" href="#backend.app.delete_file">delete_file</a></code></li>
 <li><code><a title="backend.app.delete_question" href="#backend.app.delete_question">delete_question</a></code></li>
@@ -429,11 +786,13 @@ def view_questions():
 <li><code><a title="backend.app.login" href="#backend.app.login">login</a></code></li>
 <li><code><a title="backend.app.logout" href="#backend.app.logout">logout</a></code></li>
 <li><code><a title="backend.app.modify_application" href="#backend.app.modify_application">modify_application</a></code></li>
+<li><code><a title="backend.app.modify_profile" href="#backend.app.modify_profile">modify_profile</a></code></li>
 <li><code><a title="backend.app.modify_question" href="#backend.app.modify_question">modify_question</a></code></li>
 <li><code><a title="backend.app.register" href="#backend.app.register">register</a></code></li>
 <li><code><a title="backend.app.upload_file" href="#backend.app.upload_file">upload_file</a></code></li>
 <li><code><a title="backend.app.view_applications" href="#backend.app.view_applications">view_applications</a></code></li>
 <li><code><a title="backend.app.view_files" href="#backend.app.view_files">view_files</a></code></li>
+<li><code><a title="backend.app.view_profile" href="#backend.app.view_profile">view_profile</a></code></li>
 <li><code><a title="backend.app.view_questions" href="#backend.app.view_questions">view_questions</a></code></li>
 </ul>
 </li>

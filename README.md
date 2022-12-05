@@ -93,6 +93,12 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 -   `Jenkins`
 -   `Ansible`
 
+## Architecture
+
+<p align="center">
+  <img src="./ui/assets/SE_Architecture.png" width="50%" height="50%"/></a>
+</p>
+
 
 Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].
 

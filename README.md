@@ -59,6 +59,7 @@ Excel sheets that are complex and disorganized must go! Every job-related data c
 <p align="center">
   <img src="./ui/assets/BeforeAfter.png" width="50%" height="50%"/></a>
 </p>
+
 https://user-images.githubusercontent.com/39649967/205716460-d45bbad7-6222-4a0d-9bb1-bbd808db53a2.mp4
 
 ## Development Tech Stack

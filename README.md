@@ -4,7 +4,7 @@
   <img src="./ui/assets/LogoWithTagline.png" alt="Logo"/>
 </p>
 
-[![DOI](https://zenodo.org/badge/543812642.svg)](https://zenodo.org/badge/latestdoi/543812642)
+[![DOI](https://zenodo.org/badge/564049508.svg)](https://zenodo.org/badge/latestdoi/564049508)
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 ![GitHub](https://img.shields.io/badge/Language-JavaScript-blue.svg)
 ![Yarn](https://img.shields.io/badge/Yarn-v1.22.19-green.svg)

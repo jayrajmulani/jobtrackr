@@ -109,7 +109,7 @@ export default function SavedJobs() {
 						</Button>
 					</Card>
 				))}
-				{applications.length === 0 && <Empty />}
+				{applications.length === 0 && <Empty /> && !loading }
 			</div>
 		</div>
 	);

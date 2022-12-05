@@ -13,6 +13,7 @@ import './App.scss';
 import ManageFiles from './Components/ManageFiles/ManageFiles';
 import QA from './Components/QA/QA';
 import config from './config';
+import logo from '../assets/LogoJobTrackr.png'
 
 const { Header, Content } = Layout;
 
@@ -51,7 +52,7 @@ export default function App() {
 		return (
 			<Layout className="App">
 				<Header>
-					<div className="logo" />
+					<img src={logo} className="logo"/>
 					<div style={{ minWidth: 400 }}>
 						<Menu
 							theme="dark"

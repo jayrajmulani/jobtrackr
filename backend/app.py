@@ -166,7 +166,7 @@ def modify_question():
     
     return questions.modify_question(Questions)
 
-'''
+
 @app.route("/create_profile", methods=["post"])
 def create_profile():
     
@@ -214,7 +214,6 @@ def clear_profile():
     
     return auth.clear_profile(UserProfiles, UserRecords)
 
-'''
 
 @app.route("/upload_file", methods=["GET", "POST"])
 def upload_file():

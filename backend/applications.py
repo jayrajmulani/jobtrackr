@@ -4,6 +4,25 @@ from pymongo import ReturnDocument
 
 
 def view_applications(Applications):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             email = request.args.get("email")
@@ -24,6 +43,32 @@ def view_applications(Applications):
 
 
 def add_application(Applications):
+    
+    '''
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -48,6 +93,26 @@ def add_application(Applications):
 
 
 def delete_application(Applications):
+    
+    '''
+    ```
+    Request:
+    {
+        email: email,
+        jobId: number
+    
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -65,6 +130,33 @@ def delete_application(Applications):
 
 
 def modify_application(Applications):
+    
+    '''
+    ```
+    Request:
+    {
+        email: email,
+        companyName: string,
+        jobTitle: string,
+        jobId: number,
+        description: string,
+        url: string,
+        date: date,
+        status: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
+    
     try:
         if request:
             req = request.get_json()

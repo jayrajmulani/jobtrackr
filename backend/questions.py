@@ -4,6 +4,23 @@ from pymongo import ReturnDocument
 
 
 def delete_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string,  
+        id: number
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -22,6 +39,24 @@ def delete_question(Questions):
 
 
 def add_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: boolean
+        data: message (Success / Error message as per status)
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()
@@ -41,6 +76,25 @@ def add_question(Questions):
 
 
 def view_questions(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             email = request.args.get("email")
@@ -60,6 +114,28 @@ def view_questions(Questions):
 
 
 def modify_question(Questions):
+    
+    '''
+    ```
+    Request:
+    {
+        email: string  
+        id: number
+        question: string
+        answer: string
+    }
+    Response:
+    {
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
+        
+    }
+    ```
+    '''
+    
     try:
         if request:
             req = request.get_json()

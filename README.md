@@ -139,7 +139,11 @@ git clone https://github.com/jayrajmulani/se-group1-project2.git
 
 ## Third-Party Tools
 
-- [MongoDB Cloud](https://www.mongodb.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [AWS](https://aws.amazon.com/)
+- [Jenkins](https://www.jenkins.io/)
+- [Ansible](https://www.ansible.com/)
+- [ngrok](https://ngrok.com/)
 
 ## Contributors 👨‍🏭
 

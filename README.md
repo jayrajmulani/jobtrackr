@@ -26,21 +26,23 @@
 
 ---
 
-## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr
+## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr!
 
-## Documentation for the project is available [here](https://jayrajmulani.github.io/se-group1-project2/backend/index.html)
+### Documentation for the project is available [here](https://jayrajmulani.github.io/se-group1-project2/backend/index.html).
 
 ---
 
 ## Table of Contents
 
 - [Description](#description)
-- [Introduction for Updated project](#whats-new)
+- [What's New?](#whats-new)
 - [Development Tech Stack](#development-tech-stack)
 - [Deployment Tech Stack](#deployment-tech-stack)
 - [Architecture](#architecture)
 - [CI/CD Pipeline](#cicd-pipeline)
-- Development Specifications
+- [Application Demo](#application-demo)
+- [Getting Started](#getting-started---user)
+- [Development Specifications](#development-tech-stack)
   - [Backend](./backend/README-backend.md)
   - [Frontend](./ui/README-frontend.md)
 - [Features Overview]()

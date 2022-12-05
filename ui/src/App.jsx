@@ -13,7 +13,7 @@ import './App.scss';
 import ManageFiles from './Components/ManageFiles/ManageFiles';
 import QA from './Components/QA/QA';
 import config from './config';
-import logo from '../assets/LogoJobTrackr.png'
+import logo from '../assets/LogoJobTrackr.png';
 
 const { Header, Content } = Layout;
 
@@ -21,7 +21,7 @@ const signedInPages = {
 	'/home': 'My Applications',
 	'/interested': 'Saved Jobs',
 	'/files': 'Manage Files',
-	'/qa': 'Q & A'
+	'/qa': 'Q & A',
 };
 
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
 		return (
 			<Layout className="App">
 				<Header>
-					<img src={logo} className="logo"/>
+					<img src={logo} className="logo" />
 					<div style={{ minWidth: 400 }}>
 						<Menu
 							theme="dark"
@@ -103,7 +103,7 @@ export default function App() {
 						<Route path="/home" element={<LandingPage />} />
 						<Route path="/interested" element={<SavedJobs />} />
 						<Route path="/files" element={<ManageFiles />} />
-						<Route path="/qa" element={<QA />} />						
+						<Route path="/qa" element={<QA />} />
 						{/* <Route path="/profile" element={<Profile />} /> */}
 						<Route path="*" element={<Navigate to="/home" replace />} />
 					</Routes>

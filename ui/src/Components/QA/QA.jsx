@@ -69,7 +69,7 @@ export default function QA() {
 						Answer: {qa.answer}
 					</Card>
 				))}
-				{questions.length === 0 && <Empty />}
+				{questions.length === 0 && <Empty /> && !loading }
 			</div>
 			{editQuestions && (
 				<EditQuestion

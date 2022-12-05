@@ -111,7 +111,7 @@ Note: This repository is configured with [Dart-sass](https://github.com/sass/dar
 
 ## Application Demo
 
-https://user-images.githubusercontent.com/30636208/194689139-29cdb217-a9e1-4fea-977d-74cbeb6d6799.mp4
+<!-- https://user-images.githubusercontent.com/30636208/194689139-29cdb217-a9e1-4fea-977d-74cbeb6d6799.mp4 -->
 
 ## Getting Started - User
 

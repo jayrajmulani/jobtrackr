@@ -27,7 +27,9 @@ Files = db.file
 def hello():
     
     '''
+    ```
     Welcome Page 
+    ```
     '''
     
     return "Hello, Track your job on :3000"
@@ -37,7 +39,9 @@ def hello():
 def register():
     
     '''
+    ```
     Register if you do not already have an account 
+    ```
     '''
     
     return auth.register(UserRecords)
@@ -47,7 +51,9 @@ def register():
 def login():
     
     '''
+    ```
     Login to get to the dashboard to access various functions
+    ```
     '''
     
     return auth.login(UserRecords)
@@ -57,7 +63,9 @@ def login():
 def logout():
     
     '''
+    ```
     Log out of your account
+    ```
     '''
     
     return auth.logout()
@@ -67,7 +75,9 @@ def logout():
 def view_applications():
     
     '''
+    ```
     View applications associated with the selected email ID 
+    ```
     '''
     
     return applications.view_applications(Applications)
@@ -77,7 +87,9 @@ def view_applications():
 def view_questions():
     
     '''
+    ```
     View questions associated with the selected email ID 
+    ```
     '''
     
     return questions.view_questions(Questions)
@@ -87,7 +99,9 @@ def view_questions():
 def add_application():
     
     '''
+    ```
     Add application to an account with selected email ID.  
+    ```
     '''
     
     return applications.add_application(Applications)
@@ -97,7 +111,9 @@ def add_application():
 def add_question():
     
     '''
+    ```
     Add question to a profile with selected email ID.  
+    ```
     '''
     
     return questions.add_question(Questions)
@@ -107,7 +123,9 @@ def add_question():
 def delete_application():
     
     '''
-    Delete application for an account associated with selected email ID.  
+    ```
+    Delete application associated with selected email.  
+    ```
     '''
     
     return applications.delete_application(Applications)
@@ -117,7 +135,9 @@ def delete_application():
 def delete_question():
     
     '''
-    Delete question to a profile with selected email ID.  
+    ```
+    Delete question to a profile with selected email.  
+    ```
     '''
     
     return questions.delete_question(Questions)
@@ -127,7 +147,9 @@ def delete_question():
 def modify_application():
     
     '''
-    Modify application for an account associated with selected email ID.  
+    ```
+    Modify application.  
+    ```
     '''
     
     return applications.modify_application(Applications)
@@ -137,7 +159,9 @@ def modify_application():
 def modify_question():
     
     '''
+    ```
     Modify question to a profile with selected email ID.  
+    ```
     '''
     
     return questions.modify_question(Questions)
@@ -147,7 +171,9 @@ def modify_question():
 def create_profile():
     
     '''
+    ```
     Creating profile which includes adding one's personal details and your socials URL, work experience etc.
+    ```
     '''
     
     return auth.create_profile(UserProfiles)
@@ -157,7 +183,9 @@ def create_profile():
 def view_profile():
     
     '''
+    ```
     View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
     '''
     
     return auth.view_profile(UserProfiles)
@@ -167,7 +195,9 @@ def view_profile():
 def modify_profile():
     
     '''
+    ```
     Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
     '''
     
     return auth.modify_profile(UserProfiles)
@@ -177,7 +207,9 @@ def modify_profile():
 def clear_profile():
     
     '''
+    ```
     View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    ```
     '''
     
     return auth.clear_profile(UserProfiles, UserRecords)
@@ -187,7 +219,9 @@ def clear_profile():
 def upload_file():
     
     '''
+    ```
     Uploads file to Amazon S3 bucket
+    ```
     '''
     
     return files.upload_file(UserRecords, Files)
@@ -197,7 +231,9 @@ def upload_file():
 def view_files():
     
     '''
+    ```
     View your files directly from cloud - Amazon S3 bucket
+    ```
     '''
     
     return files.view_files(Files)
@@ -207,7 +243,9 @@ def view_files():
 def download_file():
     
     '''
+    ```
     View your files directly from cloud - Amazon S3 bucket
+    ```
     '''
     
     @after_this_request
@@ -224,7 +262,9 @@ def download_file():
 def delete_file():
     
     '''
+    ```
     Delete one's files from cloud storage
+    ```
     '''
     
     return files.delete_file(Files)

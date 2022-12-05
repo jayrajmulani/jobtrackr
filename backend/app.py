@@ -172,7 +172,7 @@ def create_profile():
 
     '''
     ```
-    Creating profile which includes adding one's personal details and your socials URL, work experience etc.
+    Creating profile
     ```
     '''
 
@@ -184,7 +184,7 @@ def view_profile():
 
     '''
     ```
-    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    View profile
     ```
     '''
 
@@ -196,7 +196,7 @@ def modify_profile():
 
     '''
     ```
-    Modify profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    Modify profile
     ```
     '''
 
@@ -208,7 +208,7 @@ def clear_profile():
 
     '''
     ```
-    View profile which includes adding your personal details and your socials URL, work experience etc associated with selected email
+    View profile
     ```
     '''
 
@@ -232,7 +232,7 @@ def view_files():
 
     '''
     ```
-    View your files directly from cloud - Amazon S3 bucket
+    View your files directly from cloud
     ```
     '''
 
@@ -244,7 +244,7 @@ def download_file():
 
     '''
     ```
-    View your files directly from cloud - Amazon S3 bucket
+    View your files directly from cloud
     ```
     '''
 

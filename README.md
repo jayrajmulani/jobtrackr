@@ -19,24 +19,28 @@
 [![Backend-Test](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/code_coverage.yml/badge.svg)](https://github.com/jayrajmulani/se-group1-project2/actions/workflows/code_coverage.yml)
 
 <!-- ![Lines of code](https://img.shields.io/tokei/lines-raw/github.com/ekanshsinghal/se-group26-proj1) -->
+
 ![Repo Size](https://img.shields.io/github/repo-size/jayrajmulani/se-group1-project2?color=brightgreen)
 [![GitHub Release](https://img.shields.io/github/release/jayrajmulani/se-group1-project2)](https://github.com/jayrajmulani/se-group1-project2/releases/)
 [![codecov](https://codecov.io/github/jayrajmulani/se-group1-project2/branch/main/graph/badge.svg?token=fHCWUMUXXr)](https://codecov.io/github/jayrajmulani/se-group1-project2)
 
+---
+
 ## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr
 
-## Goal
+## Documentation for the project is available [here](https://jayrajmulani.github.io/se-group1-project2/backend/index.html)
 
-Your personalized JobTracker application in one place!
+---
 
 ## Table of Contents
 
 - [Description](#description)
-- [Introduction for Updated project](#introduction-for-updated-project-with-new-features)
-- [Built Using](#built-using)
-- [Basic Design](#basic-design)
-- [Deployed Using](#deployed-using)
-- [Development Specifications](#built-using)
+- [Introduction for Updated project](#whats-new)
+- [Development Tech Stack](#development-tech-stack)
+- [Deployment Tech Stack](#deployment-tech-stack)
+- [Architecture](#architecture)
+- [CI/CD Pipeline](#cicd-pipeline)
+- Development Specifications
   - [Backend](./backend/README-backend.md)
   - [Frontend](./ui/README-frontend.md)
 - [Features Overview]()
@@ -44,54 +48,48 @@ Your personalized JobTracker application in one place!
 - [Tools](#tools)
 - [Contributors](#Contributors-👨‍🏭)
 
-
 ## Description
 
-Excel sheets that are complex and disorganized must go! Every job-related data can be managed by our JobTrackr Application, including your job profile, applications, status, important dates, notes, saved applications, job descriptions, recruiter details, compensation and offer package, and more.
+Excel sheets that are complex and disorganized must go! Every job-related data can be managed by our JobTrackr Application, including your job profile, applications, status, important dates, notes, saved applications, job descriptions, recruiter details, compensation and offer package, and more. Now, it supports even managing your files and offers a Question Answer Scrathpad for you to save answers to commonly asked questions during job applications.
 
-## Introduction
+## What's New?
 
-https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-96fa-b1425dfc9504.mp4
+https://user-images.githubusercontent.com/39649967/205716460-d45bbad7-6222-4a0d-9bb1-bbd808db53a2.mp4
 
-## Introduction for updated project with new features
-
-<p align="center">
-  <a href="https://app.animaker.com/video/13G8NDYJQLOO6FS1"><img src="./ui/assets/part2.png" alt="Click me" width="50%" height="50%"/></a>
-</p>
-
-
-
-## Built Using
+## Development Tech Stack
 
 <p align="center">
 <img src="./ui/assets/built.png" width="65%" style="margin-left:50px">
 </p>
 
- ## Basic Design
-![image](./ui/assets/Block2.png)
+- `react 18.2.x`
+- `babel 7.19.x`
+- `webpack cli 4.x`
+- `sass` (Dart Sass)
+- `Python 3.8+`
+- `Flask`
+- `MongoDB`
+
+Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].
+
+<!-- ## Basic Design
+
+![image](./ui/assets/Block2.png) -->
 
 <!--
 ## Roadmap
 ![image](https://github.com/ekanshsinghal/se-group26-proj1/blob/main/resources/Features.png) -->
 
--   `react 18.2.x`
--   `babel 7.19.x`
--   `webpack cli 4.x`
--   `sass` (Dart Sass)
--   `Python 3.8+`
--   `Flask`
--   `MongoDB`
-
-## Deployed Using
+## Deployment Tech Stack
 
 <p align="center">
 <img src="./ui/assets/deploy.png" width="65%" style="margin-left:50px">
 </p>
 
--   `AWS`
--   `Docker`
--   `Jenkins`
--   `Ansible`
+- `AWS`
+- `Docker`
+- `Jenkins`
+- `Ansible`
 
 ## Architecture
 
@@ -105,85 +103,41 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
   <img src="./ui/assets/SE_CICD.png" width="50%" height="50%"/></a>
 </p>
 
-
-Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].
-
 ## Application Demo
 
 https://user-images.githubusercontent.com/30636208/194689139-29cdb217-a9e1-4fea-977d-74cbeb6d6799.mp4
 
-## Getting Started
+## Getting Started - User
+
+All you need to do is visit [here](http://3.110.50.141:3000)
+
+## Getting Started - Developer
 
 ### Prerequisites
 
--   npm 8.x (8.9 recommended)
--   yarn 1.22.x
--   Python 3.8+
+- npm 8.x (8.9 recommended)
+- yarn 1.22.x
+- Python 3.8+
 
 ### Installation
 
-Clone the repository
+1. Clone the repository
 
 ```
 git clone https://github.com/jayrajmulani/se-group1-project2.git
 ```
 
-
-## Install Backend requirements
-
-Open a new terminal inside the backend directory.
-
-`se-group1-project2\backend`
-
-
-Create a virtual environment called `venv`
-
-```
-python -m venv venv
-```
-
-For Windows - Activate the virtual environment
-
-```
-venv\Scripts\activate.bat
-```
-
-For Mac OS - Activate the virtual environment
-```
-source venv/bin/activate
-```
-
-Install required packages for the Flask server
-
-```
-pip install -r requirements.txt
-```
-
-Run the flask server.
-
-```
-python app.py
-```
-The flask server runs in [http://localhost:8000](http://localhost:8000)
-
-## Available Scripts
-
-### Backend Test
-
-Run this command to test the backend APIs
-
-```
-python backend\tests.py
-```
+2. [Backend Setup](./backend/README-backend.md)
+3. [UI Setup](./backend/README-backend.md)
 
 ## Tools
 
--   Preetier Code Formatter
--   PyLint with Flake8
+- Preetier Code Formatter
+- PyLint with Flake8
 
 ## Third-Party Tools
 
--   [MongoDB Cloud](https://www.mongodb.com/)
+- [MongoDB Cloud](https://www.mongodb.com/)
 
 ## Contributors 👨‍🏭
 

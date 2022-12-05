@@ -134,7 +134,7 @@ git clone https://github.com/jayrajmulani/se-group1-project2.git
 ```
 
 2. [Backend Setup](./backend/README-backend.md)
-3. [UI Setup](./backend/README-backend.md)
+3. [UI Setup](./ui/README-frontend.md)
 
 ## Tools
 

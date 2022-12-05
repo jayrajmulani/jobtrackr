@@ -111,7 +111,7 @@ def logout():
     
     return jsonify({'message': 'Logout successful'}), 200
 
-'''
+
 def create_profile(UserProfiles):
     
     '''
@@ -390,5 +390,3 @@ def modify_profile(UserProfiles):
     except Exception as e:
         print(e)
         return jsonify({'error': "Something went wrong"}), 400
-
-'''

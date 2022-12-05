@@ -26,8 +26,11 @@ def upload_file(UserRecords, Files):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
         
     }
     ```
@@ -74,8 +77,11 @@ def view_files(Files):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
         
     }
     ```
@@ -109,8 +115,14 @@ def download_file(Files):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
+        
+        status: 501
+        data: Authorization required
         
     }
     ```
@@ -142,8 +154,11 @@ def delete_file(Files):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 500
+        data: Error message
         
     }
     ```

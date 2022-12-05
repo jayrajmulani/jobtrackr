@@ -85,8 +85,11 @@ def view_questions(Questions):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -124,8 +127,11 @@ def modify_question(Questions):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```

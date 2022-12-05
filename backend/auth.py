@@ -18,8 +18,11 @@ def register(UserRecords):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -60,8 +63,11 @@ def login(UserRecords):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -145,8 +151,11 @@ def create_profile(UserProfiles):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -211,8 +220,11 @@ def view_profile(UserProfiles):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -247,8 +259,11 @@ def clear_profile(UserProfiles, UserRecords):
     }
     Response:
     {
-        status: boolean
-        data: message (Success)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```
@@ -313,8 +328,11 @@ def modify_profile(UserProfiles):
     }
     Response:
     {
-        status: boolean
-        data: message (Success / Error message as per status)
+        status: 200
+        data: Success message
+        
+        status: 400
+        data: Error message
         
     }
     ```

@@ -74,9 +74,6 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 ## Roadmap
 ![image](https://github.com/ekanshsinghal/se-group26-proj1/blob/main/resources/Features.png) -->
 
-
-## Built With
-
 -   `react 18.2.x`
 -   `babel 7.19.x`
 -   `webpack cli 4.x`
@@ -91,12 +88,22 @@ https://user-images.githubusercontent.com/30636208/194798331-9338219d-cdbd-4ff1-
 <img src="./ui/assets/deploy.png" width="65%" style="margin-left:50px">
 </p>
 
-## Deployed With
-
 -   `AWS`
 -   `Docker`
 -   `Jenkins`
 -   `Ansible`
+
+## Architecture
+
+<p align="center">
+  <img src="./ui/assets/SE_Architecture.png" width="50%" height="50%"/></a>
+</p>
+
+## CI/CD Pipeline
+
+<p align="center">
+  <img src="./ui/assets/SE_CICD.png" width="50%" height="50%"/></a>
+</p>
 
 
 Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].

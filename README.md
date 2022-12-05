@@ -29,6 +29,22 @@
 
 Your personalized JobTracker application in one place!
 
+## Table of Contents
+
+- [Description](#description)
+- [Introduction for Updated project](#introduction-for-updated-project-with-new-features)
+- [Built Using](#built-using)
+- [Basic Design](#basic-design)
+- [Deployed Using](#deployed-using)
+- [Development Specifications](#built-using)
+  - [Backend](./backend/README-backend.md)
+  - [Frontend](./ui/README-frontend.md)
+- [Features Overview]()
+- [License](./LICENSE)
+- [Tools](#tools)
+- [Contributors](#Contributors-👨‍🏭)
+
+
 ## Description
 
 Excel sheets that are complex and disorganized must go! Every job-related data can be managed by our JobTrackr Application, including your job profile, applications, status, important dates, notes, saved applications, job descriptions, recruiter details, compensation and offer package, and more.
@@ -99,17 +115,10 @@ https://user-images.githubusercontent.com/30636208/194689139-29cdb217-a9e1-4fea-
 
 ### Installation
 
-1. Clone the repository
+Clone the repository
 
 ```
 git clone https://github.com/jayrajmulani/se-group1-project2.git
-```
-
-2. Install NPM dependencies
-
-```
-cd se-group1-project2/ui
-npm install
 ```
 
 
@@ -151,30 +160,6 @@ python app.py
 The flask server runs in [http://localhost:8000](http://localhost:8000)
 
 ## Available Scripts
-
-### Development Mode
-
-In the ui folder of project directory, you can run:
-
-```
-npm start
-```
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### Production Optimised Build
-
-```
-yarn build
-```
-
-Builds the app for production to the `build` folder.\
-It bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
 
 ### Backend Test
 

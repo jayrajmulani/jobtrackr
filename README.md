@@ -28,11 +28,9 @@
 
 ## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr.
 
-## Discord Channel: [Click here](https://discord.gg/rrn6BfhH)
-
-## Goal
-=======
 ### Documentation for the project is available [here](https://jayrajmulani.github.io/se-group1-project2/backend/index.html).
+
+### Discord Channel: [Click here](https://discord.gg/rrn6BfhH)
 
 
 ---
@@ -82,14 +80,6 @@ https://user-images.githubusercontent.com/39649967/205716460-d45bbad7-6222-4a0d-
 - `MongoDB`
 
 Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].
-
-<!-- ## Basic Design
-
-![image](./ui/assets/Block2.png) -->
-
-<!--
-## Roadmap
-![image](https://github.com/ekanshsinghal/se-group26-proj1/blob/main/resources/Features.png) -->
 
 ## Deployment Tech Stack
 

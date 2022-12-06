@@ -18,7 +18,7 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
         # print(statuscode)
-    
+
     def testWrongLogin(self):
         tester = app.test_client(self)
         response = tester.post("/login", json={"email": "xyz@ncsu.edu", "password": "jytfyjtyj"})
@@ -50,7 +50,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post("/delete_application", json={"email": "xahah@ncsu.edu", "_id": "63800dfd2bf155063a7afbd9"})
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
 
     def testViewApplication(self):
         tester = app.test_client(self)
@@ -75,7 +75,7 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
 
-    
+
     def testAddApplication(self):
         tester = app.test_client(self)
         req = {}
@@ -89,7 +89,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-   
+
 
     def testAddQuestion(self):
         tester = app.test_client(self)
@@ -101,25 +101,25 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyApplication(self):
         tester = app.test_client(self)
         req = {
-            "companyName": "k",
-            "jobTitle": "jl",
-            "jobId": "nln",
-            "description": "lkn",
-            "url": "lknl",
-            "date": "2022-12-02T21:26:03.739Z",
-            "status": "interview",
-            "_id": "638bbeee0f623188afd9e3bb",
-            "email": "dhrumilshah1234@gmail.com"
+            "companyName": "a",
+            "jobTitle": "a",
+            "jobId": "a",
+            "description": "a",
+            "url": "b",
+            "date": "2022-12-28T03:33:43.737Z",
+            "status": "inReview",
+            "_id": "638eb81bff4164e60179bab2",
+            "email": "a@a.com"
         }
         urlToSend = "/modify_application"
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -132,7 +132,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testWrongModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -144,9 +144,9 @@ class FlaskTest(unittest.TestCase):
         urlToSend = "/modify_question"
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
-        # Since the ID doesnt exist. 
+        # Since the ID doesnt exist.
         self.assertEqual(statuscode, 400)
-    
+
     def testWrongModifyApplication(self):
         tester = app.test_client(self)
         req = {
@@ -164,7 +164,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
     def testviewFiles(self):
         tester = app.test_client(self)
         email = "dhrumilshah1234@gmail.com"
@@ -180,6 +180,6 @@ class FlaskTest(unittest.TestCase):
         response = tester.get(urlToSend)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-      
+
 if __name__=="__main__":
      unittest.main()

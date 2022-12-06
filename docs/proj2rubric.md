@@ -1,12 +1,12 @@
 |Notes|Self Assessment (Total:)|evidence|
 |-----|---------------|--------|
-|Video1|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md| 
-|Xfold improvemnt |3| Improvements : Manage file feature added|
+|Video1|3|https://www.youtube.com/watch?v=3UecpZQn07E&ab_channel=JayrajMulani| 
+|Xfold improvemnt |3| Improvements : Cloud deployment making it globally accessible, manage/upload files , Q/A scratchpad , automated deployment|
 |Docs: what: point descriptions of each class/function (in isolation)|3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs|
 |Use of style checkers|3|pycodestyle, flake8|
 |Use of code formatters.|3|Prettier code formatter used
 |Use of syntax checkers.|3|pylint, eslint used to check the code syntax
-|Use of code coverage|3|https://github.com/jayrajmulani/se-group1-project2|
+|Use of code coverage|3|https://codecov.io/github/jayrajmulani/se-group1-project2|
 |Other automated analysis tools |3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs|
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... |3|https://github.com/jayrajmulani/se-group1-project2/pulse
 |but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/jayrajmulani/se-group1-project2/pulse|
@@ -20,10 +20,10 @@
 |ODocs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing|3|https://github.com/jayrajmulani/se-group1-project2/tree/main/docs
 |Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/README.md
 |Use of version control tools|3|Git
-|Test cases exist|3|Pending
+|Test cases exist|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/backend/tests.py
 |Test cases are routinely executed|3|https://github.com/jayrajmulani/se-group1-project2/actions
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up|3|https://github.com/jayrajmulani/se-group1-project2/blob/main/CONTRIBUTING.md
-|Issues are discussed before they are closed|3|Pending
+|Issues are discussed before they are closed|3|https://github.com/jayrajmulani/se-group1-project2/issues
 |Chat channel: exists|3|Discord: https://discord.gg/ANGKkKvmWH , Whatsapp
 |Test cases: a large proportion of the issues related to handling failing cases.|3|https://github.com/jayrajmulani/se-group1-project2/issues
 |Evidence that the whole team is using the same tools: everyone can get to all tools and files|3|github, VSCode

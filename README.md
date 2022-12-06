@@ -3,7 +3,7 @@
 <p align="center">
   <img src="./ui/assets/LogoWithTagline.png" alt="Logo"/>
 </p>
-## Discord channel link - [![Discord](https://img.shields.io/discord/1010335378831585310)](https://discord.gg/ANGKkKvmWH)
+
 [![DOI](https://zenodo.org/badge/564049508.svg)](https://zenodo.org/badge/latestdoi/564049508)
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 ![GitHub](https://img.shields.io/badge/Language-JavaScript-blue.svg)

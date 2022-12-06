@@ -25,6 +25,8 @@
 
 ## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr
 
+## Discord Channel Link : [Click here](https://discord.gg/rrn6BfhH)
+
 ## Goal
 
 Your personalized JobTracker application in one place!

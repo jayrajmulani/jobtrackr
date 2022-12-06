@@ -8,7 +8,7 @@
 		"generate-docs": "react-docgen src/Components --pretty -e index.jsx -o docs/frontend-docs.json"
 	},
 	"repository": "https://github.com/ekanshsinghal/se-group26-proj1.git",
-	"author": "Ekansh Singhal <ekanshsinghal@icloud.com>",
+	"author": "Jayraj Mulani <jayrajm.mulani@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
 		"@ant-design/icons": "^4.7.0",
@@ -51,6 +51,7 @@
 	"jest": {
 		"testEnvironment": "jsdom",
 		"moduleNameMapper": {
+			"\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "babel-jest",
 			"^.+\\.(css|less|scss)$": "babel-jest"
 		}
 	}

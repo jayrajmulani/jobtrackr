@@ -28,7 +28,12 @@
 
 ## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr.
 
+## Discord Channel: [Click here](https://discord.gg/rrn6BfhH)
+
+## Goal
+=======
 ### Documentation for the project is available [here](https://jayrajmulani.github.io/se-group1-project2/backend/index.html).
+
 
 ---
 

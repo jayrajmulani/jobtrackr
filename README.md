@@ -112,7 +112,7 @@ Note: This repository is configured with [Dart-sass](https://github.com/sass/dar
 ## Application Demo
 
 [![JobTrackr App Demo](https://img.youtube.com/vi/3UecpZQn07E/maxresdefault.jpg)](https://www.youtube.com/embed/3UecpZQn07E)
-<!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3UecpZQn07E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
 
 ## Getting Started - User
 

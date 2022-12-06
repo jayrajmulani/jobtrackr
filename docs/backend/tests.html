@@ -46,7 +46,7 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
         # print(statuscode)
-    
+
     def testWrongLogin(self):
         tester = app.test_client(self)
         response = tester.post(&#34;/login&#34;, json={&#34;email&#34;: &#34;xyz@ncsu.edu&#34;, &#34;password&#34;: &#34;jytfyjtyj&#34;})
@@ -78,7 +78,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(&#34;/delete_application&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
 
     def testViewApplication(self):
         tester = app.test_client(self)
@@ -103,7 +103,7 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
 
-    
+
     def testAddApplication(self):
         tester = app.test_client(self)
         req = {}
@@ -117,7 +117,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-   
+
 
     def testAddQuestion(self):
         tester = app.test_client(self)
@@ -129,25 +129,25 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyApplication(self):
         tester = app.test_client(self)
         req = {
-            &#34;companyName&#34;: &#34;k&#34;,
-            &#34;jobTitle&#34;: &#34;jl&#34;,
-            &#34;jobId&#34;: &#34;nln&#34;,
-            &#34;description&#34;: &#34;lkn&#34;,
-            &#34;url&#34;: &#34;lknl&#34;,
-            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
-            &#34;status&#34;: &#34;interview&#34;,
-            &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
-            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+            &#34;companyName&#34;: &#34;a&#34;,
+            &#34;jobTitle&#34;: &#34;a&#34;,
+            &#34;jobId&#34;: &#34;a&#34;,
+            &#34;description&#34;: &#34;a&#34;,
+            &#34;url&#34;: &#34;b&#34;,
+            &#34;date&#34;: &#34;2022-12-28T03:33:43.737Z&#34;,
+            &#34;status&#34;: &#34;inReview&#34;,
+            &#34;_id&#34;: &#34;638eb81bff4164e60179bab2&#34;,
+            &#34;email&#34;: &#34;a@a.com&#34;
         }
         urlToSend = &#34;/modify_application&#34;
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -160,7 +160,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testWrongModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -172,9 +172,9 @@ class FlaskTest(unittest.TestCase):
         urlToSend = &#34;/modify_question&#34;
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
-        # Since the ID doesnt exist. 
+        # Since the ID doesnt exist.
         self.assertEqual(statuscode, 400)
-    
+
     def testWrongModifyApplication(self):
         tester = app.test_client(self)
         req = {
@@ -192,7 +192,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
     def testviewFiles(self):
         tester = app.test_client(self)
         email = &#34;dhrumilshah1234@gmail.com&#34;
@@ -208,7 +208,7 @@ class FlaskTest(unittest.TestCase):
         response = tester.get(urlToSend)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-      
+
 if __name__==&#34;__main__&#34;:
      unittest.main()</code></pre>
 </details>
@@ -267,7 +267,7 @@ not have a method with the specified name.</p></div>
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
         # print(statuscode)
-    
+
     def testWrongLogin(self):
         tester = app.test_client(self)
         response = tester.post(&#34;/login&#34;, json={&#34;email&#34;: &#34;xyz@ncsu.edu&#34;, &#34;password&#34;: &#34;jytfyjtyj&#34;})
@@ -299,7 +299,7 @@ not have a method with the specified name.</p></div>
         response = tester.post(&#34;/delete_application&#34;, json={&#34;email&#34;: &#34;xahah@ncsu.edu&#34;, &#34;_id&#34;: &#34;63800dfd2bf155063a7afbd9&#34;})
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
 
     def testViewApplication(self):
         tester = app.test_client(self)
@@ -324,7 +324,7 @@ not have a method with the specified name.</p></div>
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
 
-    
+
     def testAddApplication(self):
         tester = app.test_client(self)
         req = {}
@@ -338,7 +338,7 @@ not have a method with the specified name.</p></div>
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-   
+
 
     def testAddQuestion(self):
         tester = app.test_client(self)
@@ -350,25 +350,25 @@ not have a method with the specified name.</p></div>
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyApplication(self):
         tester = app.test_client(self)
         req = {
-            &#34;companyName&#34;: &#34;k&#34;,
-            &#34;jobTitle&#34;: &#34;jl&#34;,
-            &#34;jobId&#34;: &#34;nln&#34;,
-            &#34;description&#34;: &#34;lkn&#34;,
-            &#34;url&#34;: &#34;lknl&#34;,
-            &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
-            &#34;status&#34;: &#34;interview&#34;,
-            &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
-            &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+            &#34;companyName&#34;: &#34;a&#34;,
+            &#34;jobTitle&#34;: &#34;a&#34;,
+            &#34;jobId&#34;: &#34;a&#34;,
+            &#34;description&#34;: &#34;a&#34;,
+            &#34;url&#34;: &#34;b&#34;,
+            &#34;date&#34;: &#34;2022-12-28T03:33:43.737Z&#34;,
+            &#34;status&#34;: &#34;inReview&#34;,
+            &#34;_id&#34;: &#34;638eb81bff4164e60179bab2&#34;,
+            &#34;email&#34;: &#34;a@a.com&#34;
         }
         urlToSend = &#34;/modify_application&#34;
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -381,7 +381,7 @@ not have a method with the specified name.</p></div>
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-    
+
     def testWrongModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -393,9 +393,9 @@ not have a method with the specified name.</p></div>
         urlToSend = &#34;/modify_question&#34;
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
-        # Since the ID doesnt exist. 
+        # Since the ID doesnt exist.
         self.assertEqual(statuscode, 400)
-    
+
     def testWrongModifyApplication(self):
         tester = app.test_client(self)
         req = {
@@ -413,7 +413,7 @@ not have a method with the specified name.</p></div>
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
-    
+
     def testviewFiles(self):
         tester = app.test_client(self)
         email = &#34;dhrumilshah1234@gmail.com&#34;
@@ -528,15 +528,15 @@ not have a method with the specified name.</p></div>
 <pre><code class="python">def testModifyApplication(self):
     tester = app.test_client(self)
     req = {
-        &#34;companyName&#34;: &#34;k&#34;,
-        &#34;jobTitle&#34;: &#34;jl&#34;,
-        &#34;jobId&#34;: &#34;nln&#34;,
-        &#34;description&#34;: &#34;lkn&#34;,
-        &#34;url&#34;: &#34;lknl&#34;,
-        &#34;date&#34;: &#34;2022-12-02T21:26:03.739Z&#34;,
-        &#34;status&#34;: &#34;interview&#34;,
-        &#34;_id&#34;: &#34;638bbeee0f623188afd9e3bb&#34;,
-        &#34;email&#34;: &#34;dhrumilshah1234@gmail.com&#34;
+        &#34;companyName&#34;: &#34;a&#34;,
+        &#34;jobTitle&#34;: &#34;a&#34;,
+        &#34;jobId&#34;: &#34;a&#34;,
+        &#34;description&#34;: &#34;a&#34;,
+        &#34;url&#34;: &#34;b&#34;,
+        &#34;date&#34;: &#34;2022-12-28T03:33:43.737Z&#34;,
+        &#34;status&#34;: &#34;inReview&#34;,
+        &#34;_id&#34;: &#34;638eb81bff4164e60179bab2&#34;,
+        &#34;email&#34;: &#34;a@a.com&#34;
     }
     urlToSend = &#34;/modify_application&#34;
     response = tester.post(urlToSend, json = req)
@@ -697,7 +697,7 @@ not have a method with the specified name.</p></div>
     urlToSend = &#34;/modify_question&#34;
     response = tester.post(urlToSend, json = req)
     statuscode = response.status_code
-    # Since the ID doesnt exist. 
+    # Since the ID doesnt exist.
     self.assertEqual(statuscode, 400)</code></pre>
 </details>
 </dd>

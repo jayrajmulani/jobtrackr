@@ -28,7 +28,7 @@
 
 ## Yes, its live! Click [here](http://3.110.50.141:3000) to checkout JobTrakr.
 
-## Discord Channel Link : [Click here](https://discord.gg/rrn6BfhH)
+## Discord Channel: [Click here](https://discord.gg/rrn6BfhH)
 
 ## Goal
 =======

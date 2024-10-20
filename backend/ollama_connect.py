@@ -1,0 +1,45 @@
+from flask import jsonify
+from langchain_ollama import ChatOllama
+
+llm = ChatOllama(
+    model="llama3.2",
+    temperature=0,
+)
+
+def generate_cv(resume, job_desc):
+    """
+    Generates a cover letter from a resume and a job description.
+    """
+    messages = [
+        (
+            "system",
+            "You are a helpful assistant that writes a cover letter from a resume and a job description.",
+        ),
+        ("human", "Resume: " + resume),
+        ("human", "Job Description: " + job_desc),
+    ]
+    try:
+        msg = llm.invoke(messages)
+        response = msg.content
+        return jsonify({'message': "Cover Letter Generated Successfully", 'letter': response}), 200
+    except Exception as e:
+        return jsonify({'error': "Something went wrong"}), 500
+    
+def provide_resume_suggestions(resume, job_desc):
+    """
+    Reviews a resume and provides suggestions to tailor it for a job description.
+    """
+    messages = [
+        (
+            "system",
+            "You are a helpful assistant that provides resume suggestions to tailor a resume to the job description.",
+        ),
+        ("human", "Resume: " + resume),
+        ("human", "Job Description: " + job_desc),
+    ]
+    try:
+        msg = llm.invoke(messages)
+        response = msg.content
+        return jsonify({'message': "Successfully Created Resume Suggestions", 'suggestions': response}), 200
+    except Exception as e:
+        return jsonify({'error': "Something went wrong"}), 500

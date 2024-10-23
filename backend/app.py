@@ -5,6 +5,7 @@ import auth
 import applications
 import questions
 import files
+import ollama_connect
 import os
 app = Flask(__name__)
 app.secret_key = "testing"
@@ -269,6 +270,25 @@ def delete_file():
 
     return files.delete_file(Files)
 
+@app.route("/generate_cv", methods=["POST"])
+def generate_cv():
+    '''
+    ```
+    Generates a Cover Letter from a resume and job description
+    ```
+    '''
+
+    return ollama_connect.generate_cv()
+
+@app.route("/resume_suggest", methods=["POST"])
+def resume_suggest():
+    '''
+    ```
+    Provides suggestions for a resume to tailor it to a job description
+    ```
+    '''
+
+    return ollama_connect.resume_suggest()
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8000)

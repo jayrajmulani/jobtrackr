@@ -10,7 +10,6 @@ import MakeCoverLetter from './MakeCoverLetter';
 export default function Coverletter() {
     const [coverLetter, setCoverLetter] = useState("");
     const [makeCoverLetterOpen, setCoverLetterOpen] = useState(false);
-	const [loading, setLoading] = useState(true);
 	const { state } = useLocation();
 
 	useEffect(() => {
@@ -19,7 +18,7 @@ export default function Coverletter() {
 	const updateCoverLetter = (letter) => {
 		setCoverLetter(letter);
 	}
-    const toggleMakeCoverLetter = () => setMakeCoverletterOpen(!makeCoverLetterOpen);
+    const toggleMakeCoverLetter = () => setCoverLetterOpen(!makeCoverLetterOpen);
 
 	return (
 		<div className="CoverLetter">
@@ -39,10 +38,15 @@ export default function Coverletter() {
                     <MakeCoverLetter
                         isOpen={makeCoverLetterOpen}
                         onClose={toggleMakeCoverLetter}
-
+                        updateCoverLetter={updateCoverLetter}
                     />
 				</div>
             </div>
+            <div className="CV">
+                <Card className="CVCard" key={1} title={"Cover Letter"}>
+                    {coverLetter}
+                </Card>
+			</div>
 		</div>
 	);
 

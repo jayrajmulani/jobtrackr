@@ -12,6 +12,7 @@ import Profile from './Components/Profile/Profile';
 import './App.scss';
 import ManageFiles from './Components/ManageFiles/ManageFiles';
 import QA from './Components/QA/QA';
+import CoverLetter from './Components/CoverLetter/CoverLetter'
 import config from './config';
 import logo from '../assets/LogoJobTrackr.png';
 
@@ -22,6 +23,7 @@ const signedInPages = {
 	'/interested': 'Saved Jobs',
 	'/files': 'Manage Files',
 	'/qa': 'Q & A',
+    '/cv': 'Cover Letter',
 };
 
 export default function App() {
@@ -104,6 +106,7 @@ export default function App() {
 						<Route path="/interested" element={<SavedJobs />} />
 						<Route path="/files" element={<ManageFiles />} />
 						<Route path="/qa" element={<QA />} />
+                        <Route path="/cv" element={<CoverLetter />} />
 						{/* <Route path="/profile" element={<Profile />} /> */}
 						<Route path="*" element={<Navigate to="/home" replace />} />
 					</Routes>

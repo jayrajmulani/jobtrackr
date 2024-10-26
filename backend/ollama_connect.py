@@ -32,7 +32,8 @@ def generate_cv():
             messages = [
                 (
                     "system",
-                    "You are a helpful assistant that writes a cover letter from a resume and a job description.",
+                    "You are a helpful assistant that writes a cover letter from a resume and a job description. \
+                    Only respond with the cover letter and nothing else.",
                 ),
                 ("human", "Resume: " + resume),
                 ("human", "Job Description: " + job_desc),

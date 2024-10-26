@@ -76,6 +76,8 @@ https://user-images.githubusercontent.com/39649967/205716460-d45bbad7-6222-4a0d-
 - `Python 3.8+`
 - `Flask`
 - `MongoDB`
+- `Ollama`
+- `LangChain`
 
 Note: This repository is configured with [Dart-sass](https://github.com/sass/dart-sass) and not [Node Sass].
 
@@ -142,10 +144,16 @@ git clone https://github.com/jayrajmulani/se-group1-project2.git
 - [Jenkins](https://www.jenkins.io/)
 - [Ansible](https://www.ansible.com/)
 - [ngrok](https://ngrok.com/)
+- [Ollama](https://ollama.com/) (Using Llama3.2 Model)
 
 ## Contributors 👨‍🏭
 
 <table>
+<tr>
+    <td align="center"><a href="https://github.com/Kethly"><img src="https://avatars.githubusercontent.com/u/57457270?v=4" width="100px;" alt=""/><br /><sub><b>Thien Do</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Nlorenc2760"><img src="https://avatars.githubusercontent.com/u/99928198?s=400&u=cc7ab1019415d06c72c81840ed406675c4b0af2a&v=4" width="100px;" alt=""/><br /><sub><b>Nathan Lorenc</b></sub></a></td>
+    <td align="center"><a href="https://github.com/jfmcdavitt"><img src="https://avatars.githubusercontent.com/u/57042681?v=4" width="100px;" alt=""/><br /><sub><b>Jake McDavitt</b></sub></a></td>
+</tr>
 <tr>
     <td align="center"><a href="https://github.com/jayrajmulani"><img src="https://avatars.githubusercontent.com/u/39649967?v=4" width="100px;" alt=""/><br /><sub><b>Jayraj Mulani</b></sub></a></td>
     <td align="center"><a href="https://github.com/Yashasya"><img src="https://avatars.githubusercontent.com/u/40204748?s=400&u=7a61d3a684ea684e3a2b3f2c3e83d90fd3e8ac0a&v=4" width="100px;" alt=""/><br /><sub><b>Yashasya Shah</b></sub></a></td>

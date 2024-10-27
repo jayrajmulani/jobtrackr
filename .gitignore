@@ -13,3 +13,6 @@ env
 
 
 __pycache__
+
+# environment variables
+.env

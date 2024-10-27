@@ -7,12 +7,14 @@ import questions
 import files
 import ollama_connect
 import os
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = "testing"
+app.secret_key = os.getenv('APP_SECRET_KEY')
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
-db1 = "mongodb://localhost:27017/"
+db1 = os.getenv('MONGO_DB_CONNECTION')
 db2 = "?retryWrites=true&w=majority"
 db = db1 + db2
 client = MongoClient(db, tlsAllowInvalidCertificates=True)

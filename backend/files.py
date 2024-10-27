@@ -1,3 +1,4 @@
+import io
 from bson import ObjectId
 from flask import request, jsonify, send_file, after_this_request
 from pymongo import ReturnDocument
@@ -148,10 +149,13 @@ def generate_cover_letter(Files):
                 if file["email"] == req["email"]:
                     s3.download_file(
                         bucket_name, file["filename"], req["filename"].split("--;--")[1])
-                    with open("cover_letter.txt", "w+") as f:
-                        f.write(extract_text_from_pdf(req["filename"].split("--;--")[1]))
-                    print(extract_text_from_pdf(req["filename"].split("--;--")[1]))
-                    return send_file("cover_letter.txt")
+                    # with open("cover_letter.txt", "w+") as f:
+                    #     f.write(extract_text_from_pdf(req["filename"].split("--;--")[1]))
+                    # return send_file("cover_letter.txt")
+                    return send_file(io.BytesIO(extract_text_from_pdf(req["filename"].split("--;--")[1]).encode("utf-8")), 
+                                     as_attachment=True, 
+                                     download_name="cover_letter.txt", 
+                                     mimetype="text/plain")
                 else:
                     return jsonify({'message': 'You are not authorized to view this file'}), 501
 
@@ -190,7 +194,14 @@ def download_file(Files):
                 if file["email"] == req["email"]:
                     s3.download_file(
                         bucket_name, file["filename"], req["filename"].split("--;--")[1])
-                    return send_file(req["filename"].split("--;--")[1])
+
+                    with open(req["filename"].split("--;--")[1], "rb") as f:
+                        file_output = f.read()
+
+                    os.remove(req["filename"].split("--;--")[1])
+                    return send_file(io.BytesIO(file_output), 
+                                     as_attachment=True, 
+                                     download_name=req["filename"].split("--;--")[1])
                 else:
                     return jsonify({'message': 'You are not authorized to view this file'}), 501
 

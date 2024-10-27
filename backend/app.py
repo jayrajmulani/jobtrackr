@@ -7,6 +7,7 @@ import questions
 import files
 import ollama_connect
 import os
+import time
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
@@ -249,14 +250,14 @@ def generate_cover_letter():
     View the generated cover letter
     ```
     '''
-
-    @after_this_request
-    def delete(response):
-        try:
-            os.remove("cover_letter.txt")
-        except Exception:
-            pass
-        return response
+    # @after_this_request
+    # def delete(response):
+    #     try:
+    #         os.remove("cover_letter.txt")
+    #     except Exception as e:
+    #         print(e)
+    #         pass
+    #     return response
     return files.generate_cover_letter(Files)
 
 @app.route("/download_file", methods=["POST"])
@@ -268,13 +269,13 @@ def download_file():
     ```
     '''
 
-    @after_this_request
-    def delete(response):
-        try:
-            os.remove(request.get_json()["filename"].split("--;--")[1])
-        except Exception:
-            pass
-        return response
+    # @after_this_request
+    # def delete(response):
+    #     try:
+    #         os.remove(request.get_json()["filename"].split("--;--")[1])
+    #     except Exception:
+    #         pass
+    #     return response
     return files.download_file(Files)
 
 

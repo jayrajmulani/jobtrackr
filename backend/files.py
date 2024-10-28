@@ -149,10 +149,10 @@ def generate_cover_letter(Files):
                 if file["email"] == req["email"]:
                     s3.download_file(
                         bucket_name, file["filename"], req["filename"].split("--;--")[1])
-                    # with open("cover_letter.txt", "w+") as f:
-                    #     f.write(extract_text_from_pdf(req["filename"].split("--;--")[1]))
-                    # return send_file("cover_letter.txt")
-                    return send_file(io.BytesIO(extract_text_from_pdf(req["filename"].split("--;--")[1]).encode("utf-8")), 
+                    
+                    output = io.BytesIO(extract_text_from_pdf(req["filename"].split("--;--")[1]).encode("utf-8"))
+                    os.remove(req["filename"].split("--;--")[1])
+                    return send_file(output, 
                                      as_attachment=True, 
                                      download_name="cover_letter.txt", 
                                      mimetype="text/plain")
@@ -162,6 +162,22 @@ def generate_cover_letter(Files):
             return jsonify({'message': 'Files found'}), 200
     except Exception:
         return jsonify({'error': 'Something went wrong'}), 500
+    
+def get_pdf_info(file_req_name, Files, email):
+    try:
+        if request:
+                file = Files.find_one({"filename": file_req_name})
+                if not str(file["filename"]).endswith(".pdf"):
+                    return ""
+                if file:
+                    if file["email"] == email:
+                        s3.download_file(
+                            bucket_name, file["filename"], file_req_name.split("--;--")[1])
+                        output = extract_text_from_pdf(file_req_name.split("--;--")[1])
+                        os.remove(file_req_name.split("--;--")[1])
+                        return output
+    except Exception:
+        return ""
 
 def download_file(Files):
     

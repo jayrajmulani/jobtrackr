@@ -283,7 +283,7 @@ def generate_cv():
     ```
     '''
 
-    return ollama_connect.generate_cv()
+    return ollama_connect.generate_cv(Files)
 
 
 @app.route("/resume_suggest", methods=["POST"])

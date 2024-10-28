@@ -161,24 +161,27 @@ def modify_application(Applications):
     
     # try:
     if request:
-        req = request.get_json()
-        email = req["email"]
-        _id = req["_id"]
-        filter = {'_id': ObjectId(_id), "email": email}
-        application = {
-            "email": email,
-            "companyName": req["companyName"],
-            "jobTitle": req["jobTitle"],
-            "jobId": req["jobId"],
-            "description": req["description"],
-            "url": req["url"],
-            "date": req["date"],
-            "status": req["status"],
-            "image": req["image"]
-        }
-        set_values = {"$set": application}
-        modify_document = Applications.find_one_and_update(
-            filter, set_values, return_document=ReturnDocument.AFTER)
+        try:
+            req = request.get_json()
+            email = req["email"]
+            _id = req["_id"]
+            filter = {'_id': ObjectId(_id), "email": email}
+            application = {
+                "email": email,
+                "companyName": req["companyName"],
+                "jobTitle": req["jobTitle"],
+                "jobId": req["jobId"],
+                "description": req["description"],
+                "url": req["url"],
+                "date": req["date"],
+                "status": req["status"],
+                "image": req["image"]
+            }
+            set_values = {"$set": application}
+            modify_document = Applications.find_one_and_update(
+                filter, set_values, return_document=ReturnDocument.AFTER)
+        except Exception as e:
+            return jsonify({"error": e}), 400
         if modify_document == None:
             return jsonify({"error": "No such Job ID found for this user's email"}), 400
         else:

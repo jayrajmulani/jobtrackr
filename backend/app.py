@@ -270,6 +270,7 @@ def delete_file():
 
     return files.delete_file(Files)
 
+
 @app.route("/generate_cv", methods=["POST"])
 def generate_cv():
     '''
@@ -280,6 +281,7 @@ def generate_cv():
 
     return ollama_connect.generate_cv()
 
+
 @app.route("/resume_suggest", methods=["POST"])
 def resume_suggest():
     '''
@@ -289,6 +291,7 @@ def resume_suggest():
     '''
 
     return ollama_connect.resume_suggest()
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8000)

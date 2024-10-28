@@ -157,9 +157,7 @@ def modify_application(Applications):
     }
     ```
     '''
-    
-    
-    # try:
+
     if request:
         try:
             req = request.get_json()
@@ -186,7 +184,3 @@ def modify_application(Applications):
             return jsonify({"error": "No such Job ID found for this user's email"}), 400
         else:
             return jsonify({"message": "Job Application modified successfully"}), 200
-    # except Exception as e:
-    #     print(e)
-    #     print("this was hit!")
-    #     return jsonify({'error': "Something went wrong", "message": str(e)}), 400

@@ -49,23 +49,6 @@ export default function ManageFiles() {
 			.finally(() => setLoadingDownload(false));
 	};
 
-	const onCoverLetter = (file) => {
-		setLoadingDownload(true);
-		axios
-			.post(`${config.base_url}/generate_cover_letter`, file, { responseType: 'blob' })
-			.then((response) => {
-				const url = window.URL.createObjectURL(new Blob([response.data]));
-				const link = document.createElement('a');
-				link.href = url;
-				link.setAttribute('download', "cover_letter.txt");
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
-				window.URL.revokeObjectURL(href);
-			})
-			.catch((err) => console.log(err))
-			.finally(() => setLoadingDownload(false));
-	};
 
 	const onDeleteFile = (file) => {
 		setLoadingDelete(true);
@@ -136,14 +119,6 @@ export default function ManageFiles() {
 							disabled={loadingDownload}
 						>
 							Download
-						</Button>
-						<Button
-							icon={<PlusOutlined />}
-							type="primary"
-							onClick={() => onCoverLetter(file)}
-							disabled={loadingDownload}
-						>
-							Generate Cover Letter
 						</Button>
 					</Card>
 				))}

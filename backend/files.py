@@ -112,58 +112,11 @@ def view_files(Files):
         print(e)
         return jsonify({'error': "Something went wrong"}), 500
 
-
-def generate_cover_letter(Files):
-    
-    '''
-    ```
-    Request:
-    {
-         
-    }
-    Response:
-    {
-        status: 200
-        data: Success message
-        
-        status: 500
-        data: Error message
-        
-        status: 400
-        data: Error message
-
-        status: 501
-        data: Authorization required
-        
-    }
-    ```
-    '''
-    
-    try:
-        if request:
-            req = request.get_json()
-            file = Files.find_one({"filename": req["filename"]})
-            if not str(file["filename"]).endswith(".pdf"):
-                return jsonify({'message': 'Invalid file type'}), 400
-            if file:
-                if file["email"] == req["email"]:
-                    s3.download_file(
-                        bucket_name, file["filename"], req["filename"].split("--;--")[1])
-                    
-                    output = io.BytesIO(extract_text_from_pdf(req["filename"].split("--;--")[1]).encode("utf-8"))
-                    os.remove(req["filename"].split("--;--")[1])
-                    return send_file(output, 
-                                     as_attachment=True, 
-                                     download_name="cover_letter.txt", 
-                                     mimetype="text/plain")
-                else:
-                    return jsonify({'message': 'You are not authorized to view this file'}), 501
-
-            return jsonify({'message': 'Files found'}), 200
-    except Exception:
-        return jsonify({'error': 'Something went wrong'}), 500
-    
 def get_pdf_info(file_req_name, Files, email):
+    """
+    Helper function to extract the values from a pdf
+    in the AWS S3 bucket.
+    """
     try:
         if request:
                 file = Files.find_one({"filename": file_req_name})

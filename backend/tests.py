@@ -181,5 +181,21 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
+    def testGenerateCoverLetter(self):
+        tester = app.test_client(self)
+        email = "dhrumilshah1234@gmail.com"
+        urlToSend = f"/generate_cv?email={email}"
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testResumeSuggestions(self):
+        tester = app.test_client(self)
+        email = "dhrumilshah1234@gmail.com"
+        urlToSend = f"/resume_suggest?email={email}"
+        response = tester.get(urlToSend)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
 if __name__=="__main__":
      unittest.main()

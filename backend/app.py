@@ -243,16 +243,6 @@ def view_files():
 
     return files.view_files(Files)
 
-@app.route("/generate_cover_letter", methods=["POST"])
-def generate_cover_letter():
-
-    '''
-    ```
-    View the generated cover letter
-    ```
-    '''
-    return files.generate_cover_letter(Files)
-
 @app.route("/download_file", methods=["POST"])
 def download_file():
 

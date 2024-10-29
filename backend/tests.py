@@ -46,6 +46,7 @@ class FlaskTest(unittest.TestCase):
         Questions.insert_one({"email": "dhrumilshah1234@gmail.com", "_id": ObjectId("638bafe50012ef455196cc6e"),
                                "question": "aa", "answer": "bb"})
         Applications.insert_one(application)
+        UserRecords.delete_one({"email": "rrangar@ncsu.edu"})
     
     def tearDown(self):
         # Clear the mock data after each test
@@ -61,7 +62,6 @@ class FlaskTest(unittest.TestCase):
         response = tester.post("/login", json={"email": "dhrumilshah1234@gmail.com", "password": "12345678"})
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-        # print(statuscode)
 
     def testWrongLogin(self):
         tester = app.test_client(self)
@@ -70,7 +70,7 @@ class FlaskTest(unittest.TestCase):
         # User account not found
         self.assertEqual(statuscode, 400)
 
-    def testWrongLogin(self):
+    def testWrongLoginPassword(self):
         tester = app.test_client(self)
         response = tester.post("/login", json={"email": "dhrumilshah1234@gmail.com", "password": "jytfyjtyj"})
         statuscode = response.status_code
@@ -88,12 +88,34 @@ class FlaskTest(unittest.TestCase):
         urlToSend = "/register"
         response = tester.post(urlToSend, json = req)
         statuscode = response.status_code
-        if statuscode == 200:
-            # New user created
-            self.assertEqual(statuscode, 200)
-        if statuscode == 400:
-            # User already present
-            self.assertEqual(statuscode, 400)
+        # New user created
+        self.assertEqual(statuscode, 200)
+    
+    def testWrongRegisterExistingEmail(self):
+        tester = app.test_client(self)
+        req = {}
+        req["firstName"] = "Rahul"
+        req["lastName"] = "RK"
+        req["email"] = "dhrumilshah1234@gmail.com"
+        req["password"] = "12345678"
+        req["confirmPassword"] = "12345678"
+        urlToSend = "/register"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
+    def testWrongRegisterNoMatchingPasswor(self):
+        tester = app.test_client(self)
+        req = {}
+        req["firstName"] = "Rahul"
+        req["lastName"] = "RK"
+        req["email"] = "rrangar@ncsu.edu"
+        req["password"] = "12345678"
+        req["confirmPassword"] = "123456789"
+        urlToSend = "/register"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
 
     def testdeletewrongApplication(self):
         tester = app.test_client(self)
@@ -184,6 +206,19 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
+    def testWrongEmailModifyQuestion(self):
+        tester = app.test_client(self)
+        req = {
+         "question": "Q1",
+         "answer": "A1",
+        "_id": "638bafe50012ef455196cc6e",
+        "email": "a@a.com"
+        }
+        urlToSend = "/modify_question"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
     def testWrongModifyQuestion(self):
         tester = app.test_client(self)
         req = {
@@ -216,6 +251,61 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
 
+    def testModifyApplicationNoDate(self):
+        tester = app.test_client(self)
+        req = {
+            "companyName": "Qorvo",
+            "jobTitle": "Software Engineer",
+            "jobId": "122881",
+            "description": "lkn",
+            "url": "",
+            "date": None,
+            "status": "interview",
+            "_id": "638eb81bff4164e60179bab2",
+            "email": "dhrumilshah1234@gmail.com",
+            "image": "www.google.com"
+        }
+        urlToSend = "/modify_application"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testWrongModifyApplicationMissingImage(self):
+        tester = app.test_client(self)
+        req = {
+            "companyName": "Qorvo",
+            "jobTitle": "Software Engineer",
+            "jobId": "122881",
+            "description": "lkn",
+            "url": "",
+            "date": "2022-12-02T21:26:03.739Z",
+            "status": "interview",
+            "_id": "638eb81bff4164e60179bab2",
+            "email": "dhrumilshah1234@gmail.com",
+        }
+        urlToSend = "/modify_application"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
+    def testWrongModifyApplicationStatusAndURL(self):
+        tester = app.test_client(self)
+        req = {
+            "companyName": "k",
+            "jobTitle": "jl",
+            "jobId": "nln",
+            "description": "lkn",
+            "url": "lknl",
+            "date": "2022-12-02T21:26:03.739Z",
+            "status": "a",
+            "_id": "638eb81bff4164e60179bab2",
+            "email": "dhrumilshah1234@gmail.com"
+        }
+        urlToSend = "/modify_application"
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
     def testviewFiles(self):
         tester = app.test_client(self)
         email = "dhrumilshah1234@gmail.com"
@@ -239,6 +329,19 @@ class FlaskTest(unittest.TestCase):
         req = {
             "email": email,
             "file": "",
+            "context": "I want to be good at programaming",
+            "job_desc": "We want embedded engineers."
+        }
+        response = tester.post(urlToSend, json = req)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+    def testGenerateCoverLetterWithoutFile(self):
+        tester = app.test_client(self)
+        email = "dhrumilshah1234@gmail.com"
+        urlToSend = f"/generate_cv"
+        req = {
+            "email": email,
             "context": "I want to be good at programaming",
             "job_desc": "We want embedded engineers."
         }

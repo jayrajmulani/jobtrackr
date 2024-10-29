@@ -222,7 +222,7 @@ def generate_cv(resume, job_desc, context):
     except Exception:
         return jsonify({'error': "Something went wrong"}), 400
     
-def resume_suggest():
+def resume_suggest(resume, job_desc):
     """
     Reviews a resume and provides suggestions to tailor it for a job description.
     ```
@@ -241,10 +241,6 @@ def resume_suggest():
     """
     try:
         if request:
-            req = request.get_json()
-            resume = req["resume"]
-            job_desc = req["job_desc"]
-            
             messages = [
                 (
                     "system",

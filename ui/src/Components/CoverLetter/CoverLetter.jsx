@@ -23,7 +23,7 @@ export default function Coverletter() {
 		const url = window.URL.createObjectURL(new Blob([coverLetter], {type: 'text/plain'}));
 			const link = document.createElement('a');
 			link.href = url;
-			link.setAttribute('download', "cover_letter.txt");
+			link.setAttribute('download', "cv.txt");
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);

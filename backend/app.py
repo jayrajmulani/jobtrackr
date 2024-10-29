@@ -1,4 +1,4 @@
-from flask import Flask, request, after_this_request
+from flask import Flask, jsonify, request, after_this_request
 from pymongo import MongoClient
 from flask_cors import CORS
 import auth
@@ -274,9 +274,9 @@ def generate_cv():
     ```
     '''
     req = request.get_json()
-    resume = get_pdf_info(req["file"], Files, req["email"])
-    job_desc = req["job_desc"]
-    context = req["context"] if req["context"] and len(req["context"]) > 0 else ""
+    resume = get_pdf_info(req["file"], Files, req["email"]) if "file" in req.keys() and len(req["file"]) > 0 else ""
+    job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
+    context = req["context"] if "context" in req.keys() and len(req["context"]) > 0 else ""
     return ollama_connect.generate_cv(resume, job_desc, context)
 
 
@@ -287,8 +287,10 @@ def resume_suggest():
     Provides suggestions for a resume to tailor it to a job description
     ```
     '''
-
-    return ollama_connect.resume_suggest()
+    req = request.get_json()
+    resume = get_pdf_info(req["file"], Files, req["email"]) if "file" in req.keys() and len(req["file"]) > 0 else ""
+    job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
+    return ollama_connect.resume_suggest(resume, job_desc)
 
 
 if __name__ == "__main__":

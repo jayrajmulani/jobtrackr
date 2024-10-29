@@ -118,22 +118,6 @@ export default function AddApplication({ isOpen, onClose, updateApplications }) 
 					<DatePicker />
 				</Form.Item>
 				<Form.Item
-					label="Image Link for Logo"
-					name="image"
-					rules={[
-						{
-							required: false,
-							message: 'Please enter URL / Image Link!',
-						},
-						{
-							type: 'url',
-							warningOnly: true,
-						},
-					]}
-				>
-					<Input placeholder="Enter URL / Image Link" />
-				</Form.Item>
-				<Form.Item
 					label="Status"
 					name="status"
 					rules={[

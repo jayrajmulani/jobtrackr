@@ -77,7 +77,6 @@ export default function EditApplication({ application, onClose, updateApplicatio
 					url: application.url,
 					status: application.status != 'saved' ? application.status : 'applied',
 					date: application.date == null || application.date == undefined  ? moment(new Date()): moment(application.date),
-					image: application.image
 				}}
 				onFinish={updateApplication}
 			>
@@ -147,22 +146,6 @@ export default function EditApplication({ application, onClose, updateApplicatio
 					]}
 				>
 					<DatePicker />
-				</Form.Item>
-				<Form.Item
-					label="Image Link for Logo"
-					name="image"
-					rules={[
-						{
-							required: false,
-							message: 'Please enter URL / Image Link!',
-						},
-						{
-							type: 'url',
-							warningOnly: true,
-						},
-					]}
-				>
-					<Input placeholder="Enter URL / Image Link" />
 				</Form.Item>
 				<Form.Item
 					label="Status"

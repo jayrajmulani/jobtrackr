@@ -80,7 +80,8 @@ def add_application(Applications):
                 "description": req["description"] if "description" in req.keys() else None,
                 "url": req["url"],
                 "date": req["date"] if "date" in req.keys() else None,
-                "status": req["status"]
+                "status": req["status"],
+                "image": req["image"] if "image" in req.keys() else None
             }
             try:
                 Applications.insert_one(application)
@@ -142,6 +143,7 @@ def modify_application(Applications):
         description: string,
         url: string,
         date: date,
+        image: string,
         status: string
     }
     Response:
@@ -155,10 +157,9 @@ def modify_application(Applications):
     }
     ```
     '''
-    
-    
-    try:
-        if request:
+
+    if request:
+        try:
             req = request.get_json()
             email = req["email"]
             _id = req["_id"]
@@ -171,15 +172,15 @@ def modify_application(Applications):
                 "description": req["description"],
                 "url": req["url"],
                 "date": req["date"],
-                "status": req["status"]
+                "status": req["status"],
+                "image": req["image"]
             }
             set_values = {"$set": application}
             modify_document = Applications.find_one_and_update(
                 filter, set_values, return_document=ReturnDocument.AFTER)
-            if modify_document == None:
-                return jsonify({"error": "No such Job ID found for this user's email"}), 400
-            else:
-                return jsonify({"message": "Job Application modified successfully"}), 200
-    except Exception as e:
-        print(e)
-        return jsonify({'error': "Something went wrong"}), 400
+        except Exception as e:
+            return jsonify({"error": e}), 400
+        if modify_document == None:
+            return jsonify({"error": "No such Job ID found for this user's email"}), 400
+        else:
+            return jsonify({"message": "Job Application modified successfully"}), 200

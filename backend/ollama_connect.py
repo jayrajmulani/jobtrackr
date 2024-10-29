@@ -1,6 +1,5 @@
 from flask import request, jsonify
 from langchain_ollama import ChatOllama
-from files import get_pdf_info
 llm = ChatOllama(
     model="llama3.2",
     temperature=0,
@@ -191,7 +190,7 @@ Sincerely,
 Tracey Clayton
 """
 
-def generate_cv(Files):
+def generate_cv(resume, job_desc, context):
     """
     Generates a cover letter from a resume and a job description.
     ```
@@ -210,11 +209,6 @@ def generate_cv(Files):
     """
     try:
         if request:
-            req = request.get_json()
-            resume = get_pdf_info(req["file"], Files, req["email"])
-            job_desc = req["job_desc"]
-            context = req["context"] if req["context"] and len(req["context"]) > 0 else ""
-
             messages = [
                 ("system",system_prompt_cv_short,),
                 ("human", "Resume: " + resume),
@@ -225,7 +219,7 @@ def generate_cv(Files):
             response = msg.content
             return jsonify({'message': "Cover Letter Generated Successfully", 'letter': response}), 200
 
-    except Exception as e:
+    except Exception:
         return jsonify({'error': "Something went wrong"}), 400
     
 def resume_suggest():

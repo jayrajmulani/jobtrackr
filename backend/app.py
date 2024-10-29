@@ -8,6 +8,7 @@ import files
 import ollama_connect
 import os
 import time
+from files import get_pdf_info
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
@@ -19,7 +20,7 @@ db1 = os.getenv('MONGO_DB_CONNECTION')
 db2 = "?retryWrites=true&w=majority"
 db = db1 + db2
 client = MongoClient(db, tlsAllowInvalidCertificates=True)
-db = client.get_database("development")
+db = client.get_database(os.getenv('DATABASE_TYPE'))
 UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles
@@ -282,8 +283,11 @@ def generate_cv():
     Generates a Cover Letter from a resume and job description
     ```
     '''
-
-    return ollama_connect.generate_cv(Files)
+    req = request.get_json()
+    resume = get_pdf_info(req["file"], Files, req["email"])
+    job_desc = req["job_desc"]
+    context = req["context"] if req["context"] and len(req["context"]) > 0 else ""
+    return ollama_connect.generate_cv(resume, job_desc, context)
 
 
 @app.route("/resume_suggest", methods=["POST"])

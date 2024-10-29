@@ -1,10 +1,10 @@
 annotated-types==0.7.0
 anyio==4.6.2.post1
 bcrypt==3.2.2
-cffi
 boto3==1.26.22
 botocore==1.29.165
 certifi==2024.8.30
+cffi==1.15.1
 charset-normalizer==3.4.0
 click==8.1.3
 colorama==0.4.6

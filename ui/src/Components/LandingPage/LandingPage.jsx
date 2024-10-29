@@ -111,10 +111,6 @@ export default function LandingPage() {
 											</a>
 											<br />
 											Notes: {application.description}
-											<br />
-											Logo:
-											<br />
-											<img className="logo" src={application.image} />
 										</Card>
 									)
 							)

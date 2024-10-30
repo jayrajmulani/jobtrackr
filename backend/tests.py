@@ -12,11 +12,11 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 from backend.app import app
-db1 = os.getenv('MONGO_DB_CONNECTION')
+db1 = os.getenv('MONGO_DB_CONNECTION', "mongodb://localhost:27017/")
 db2 = "?retryWrites=true&w=majority"
 db = db1 + db2
 client = MongoClient(db, tlsAllowInvalidCertificates=True)
-db = client.get_database(os.getenv('DATABASE_TYPE'))
+db = client.get_database(os.getenv('DATABASE_TYPE', "development"))
 UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles

@@ -12,15 +12,15 @@ from files import get_pdf_info
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
-app.secret_key = os.getenv('APP_SECRET_KEY')
+app.secret_key = os.getenv('APP_SECRET_KEY', "")
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
-db1 = os.getenv('MONGO_DB_CONNECTION')
+db1 = os.getenv('MONGO_DB_CONNECTION', "mongodb://localhost:27017/")
 db2 = "?retryWrites=true&w=majority"
 db = db1 + db2
 client = MongoClient(db, tlsAllowInvalidCertificates=True)
-db = client.get_database(os.getenv('DATABASE_TYPE'))
+db = client.get_database(os.getenv('DATABASE_TYPE', "development"))
 UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles
@@ -243,6 +243,7 @@ def view_files():
 
     return files.view_files(Files)
 
+
 @app.route("/download_file", methods=["POST"])
 def download_file():
 
@@ -274,7 +275,11 @@ def generate_cv():
     ```
     '''
     req = request.get_json()
-    resume = get_pdf_info(req["file"], Files, req["email"]) if "file" in req.keys() and len(req["file"]) > 0 else ""
+    resume = (
+        get_pdf_info(req["file"], Files, req["email"])
+        if "file" in req and len(req["file"]) > 0
+        else ""
+    )
     job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
     context = req["context"] if "context" in req.keys() and len(req["context"]) > 0 else ""
     return ollama_connect.generate_cv(resume, job_desc, context)
@@ -288,7 +293,11 @@ def resume_suggest():
     ```
     '''
     req = request.get_json()
-    resume = get_pdf_info(req["file"], Files, req["email"]) if "file" in req.keys() and len(req["file"]) > 0 else ""
+    resume = (
+        get_pdf_info(req["file"], Files, req["email"])
+        if "file" in req and len(req["file"]) > 0
+        else ""
+    )
     job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
     return ollama_connect.resume_suggest(resume, job_desc)
 

@@ -173,13 +173,13 @@ def modify_application(Applications):
                 "url": req["url"],
                 "date": req["date"],
                 "status": req["status"],
-                "image": req["image"]
+                "image": req["image"] if "image" in req.keys() else None
             }
             set_values = {"$set": application}
             modify_document = Applications.find_one_and_update(
                 filter, set_values, return_document=ReturnDocument.AFTER)
-        except Exception:
-            return jsonify({"error": "Something went wrong"}), 400
+        except Exception as e:
+            return jsonify({"error": str(e)}), 400
         if modify_document == None:
             return jsonify({"error": "No such Job ID found for this user's email"}), 400
         else:

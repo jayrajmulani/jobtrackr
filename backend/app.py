@@ -281,7 +281,12 @@ def generate_cv():
         else ""
     )
     job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
-    context = req["context"] if "context" in req.keys() and len(req["context"]) > 0 else ""
+    context = (
+        req["context"]
+        if "context" in req.keys() and len(req["context"]) > 0
+        else ""
+        )
+
     return ollama_connect.generate_cv(resume, job_desc, context)
 
 

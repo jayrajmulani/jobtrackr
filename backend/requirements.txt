@@ -46,6 +46,7 @@ Werkzeug==2.2.2
 requests
 Flask-Cors==3.0.10
 boto3==1.26.22
-python-dotenv
+python-dotenv==1.0.1
+PyPDF2==3.0.1
 
 

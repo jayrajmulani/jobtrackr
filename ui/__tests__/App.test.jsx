@@ -231,4 +231,48 @@ describe('App', () => {
 		);
 		await user.click(getById(baseElement, 'delete'));
 	});
+
+	test('test going to the cv page and opening the prompt and then closing it', async () => {
+		const { baseElement } = render(
+			<MemoryRouter
+				initialEntries={[{ pathname: '/home', state: { email: 'test@abc.com' } }]}
+			>
+				<App />
+			</MemoryRouter>
+		);
+		await userEvent.click(getById(baseElement, '/cv'))
+		await userEvent.click(getById(baseElement, 'generate-cv'));
+		await userEvent.click(getById(baseElement, 'cancel'));
+	});
+
+	test('Check cv that the choose resume dropdown is disabled with no files', async () => {
+		const { baseElement } = render(
+			<MemoryRouter
+				initialEntries={[{ pathname: '/home', state: { email: 'test@abc.com' } }]}
+			>
+				<App />
+			</MemoryRouter>
+		);
+		await userEvent.click(getById(baseElement, '/cv'))
+		await userEvent.click(getById(baseElement, 'generate-cv'));
+		expect(getByClass(baseElement, 'ant-select-selection-search-input')).toHaveAttribute("disabled");
+	});
+
+	test('Test cv requirement for Job Description', async () => {
+		const { baseElement } = render(
+			<MemoryRouter
+				initialEntries={[{ pathname: '/home', state: { email: 'test@abc.com' } }]}
+			>
+				<App />
+			</MemoryRouter>
+		);
+		await userEvent.click(getById(baseElement, '/cv'))
+		await userEvent.click(getById(baseElement, 'generate-cv'));
+		await userEvent.type(getById(baseElement, 'job_desc'), "text")
+		await userEvent.clear(getById(baseElement, 'job_desc'))
+		expect(getById(baseElement, 'job_desc').textContent).toBe("");
+		await new Promise((r) => setTimeout(r, 1000));
+		expect(getById(baseElement, 'job_desc_help').firstChild.textContent)
+		.toBe("Please input job description to tailor the Cover Letter!");
+	});
 });

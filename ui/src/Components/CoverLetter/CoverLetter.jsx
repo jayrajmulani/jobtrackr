@@ -8,8 +8,8 @@ import config from '../../config';
 import MakeCoverLetter from './MakeCoverLetter';
 
 export default function Coverletter() {
-    const [coverLetter, setCoverLetter] = useState("");
-    const [makeCoverLetterOpen, setCoverLetterOpen] = useState(false);
+	const [coverLetter, setCoverLetter] = useState("");
+	const [makeCoverLetterOpen, setCoverLetterOpen] = useState(false);
 	const { state } = useLocation();
 
 	useEffect(() => {

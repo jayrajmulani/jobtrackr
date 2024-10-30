@@ -18,7 +18,7 @@ export default function MakeCoverLetter({ isOpen, onClose, updateCoverLetter }) 
         setLoadingDownload(true);
 		axios
 			.get(`${config.base_url}/view_files?email=` + state.email)
-			.then(({ data }) => setFiles(data.files))
+			.then(({ data }) => setFiles(data.files) ? data.files : setFiles([]))
 			.catch((err) => console.log(err))
             .finally(() => setLoadingDownload(false));
 	};

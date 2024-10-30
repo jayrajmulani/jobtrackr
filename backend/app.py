@@ -1,4 +1,4 @@
-from flask import Flask, request, after_this_request
+from flask import Flask, jsonify, request, after_this_request
 from pymongo import MongoClient
 from flask_cors import CORS
 import auth
@@ -7,16 +7,20 @@ import questions
 import files
 import ollama_connect
 import os
+import time
+from files import get_pdf_info
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = "testing"
+app.secret_key = os.getenv('APP_SECRET_KEY', "")
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
-db1 = "mongodb://localhost:27017/"
+db1 = os.getenv('MONGO_DB_CONNECTION', "mongodb://localhost:27017/")
 db2 = "?retryWrites=true&w=majority"
 db = db1 + db2
 client = MongoClient(db, tlsAllowInvalidCertificates=True)
-db = client.get_database("development")
+db = client.get_database(os.getenv('DATABASE_TYPE', "development"))
 UserRecords = db.register
 Applications = db.Applications
 UserProfiles = db.Profiles
@@ -248,14 +252,6 @@ def download_file():
     View your files directly from cloud
     ```
     '''
-
-    @after_this_request
-    def delete(response):
-        try:
-            os.remove(request.get_json()["filename"].split("--;--")[1])
-        except Exception:
-            pass
-        return response
     return files.download_file(Files)
 
 
@@ -278,8 +274,20 @@ def generate_cv():
     Generates a Cover Letter from a resume and job description
     ```
     '''
+    req = request.get_json()
+    resume = (
+        get_pdf_info(req["file"], Files, req["email"])
+        if "file" in req and len(req["file"]) > 0
+        else ""
+    )
+    job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
+    context = (
+        req["context"]
+        if "context" in req.keys() and len(req["context"]) > 0
+        else ""
+        )
 
-    return ollama_connect.generate_cv()
+    return ollama_connect.generate_cv(resume, job_desc, context)
 
 
 @app.route("/resume_suggest", methods=["POST"])
@@ -289,8 +297,14 @@ def resume_suggest():
     Provides suggestions for a resume to tailor it to a job description
     ```
     '''
-
-    return ollama_connect.resume_suggest()
+    req = request.get_json()
+    resume = (
+        get_pdf_info(req["file"], Files, req["email"])
+        if "file" in req and len(req["file"]) > 0
+        else ""
+    )
+    job_desc = req["job_desc"] if "job_desc" in req.keys() else ""
+    return ollama_connect.resume_suggest(resume, job_desc)
 
 
 if __name__ == "__main__":

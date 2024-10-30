@@ -1,12 +1,17 @@
+import io
 from bson import ObjectId
 from flask import request, jsonify, send_file, after_this_request
 from pymongo import ReturnDocument
 import boto3
 import re
 import os
+from dotenv import load_dotenv
+from resume_extract import extract_text_from_pdf
 
-s3 = boto3.client('s3', aws_access_key_id="AKIA5WCCAKRFZNMK4DEB",
-                  aws_secret_access_key="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")
+load_dotenv()
+
+s3 = boto3.client('s3', aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID', ""),
+                  aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY', ""))
 
 bucket_name = "job-tracker-resume-upload"
 
@@ -107,6 +112,25 @@ def view_files(Files):
         print(e)
         return jsonify({'error': "Something went wrong"}), 500
 
+def get_pdf_info(file_req_name, Files, email):
+    """
+    Helper function to extract the values from a pdf
+    in the AWS S3 bucket.
+    """
+    try:
+        if request:
+                file = Files.find_one({"filename": file_req_name})
+                if not str(file["filename"]).endswith(".pdf"):
+                    return ""
+                if file:
+                    if file["email"] == email:
+                        s3.download_file(
+                            bucket_name, file["filename"], file_req_name.split("--;--")[1])
+                        output = extract_text_from_pdf(file_req_name.split("--;--")[1])
+                        os.remove(file_req_name.split("--;--")[1])
+                        return output
+    except Exception:
+        return ""
 
 def download_file(Files):
     
@@ -139,7 +163,14 @@ def download_file(Files):
                 if file["email"] == req["email"]:
                     s3.download_file(
                         bucket_name, file["filename"], req["filename"].split("--;--")[1])
-                    return send_file(req["filename"].split("--;--")[1])
+
+                    with open(req["filename"].split("--;--")[1], "rb") as f:
+                        file_output = f.read()
+
+                    os.remove(req["filename"].split("--;--")[1])
+                    return send_file(io.BytesIO(file_output), 
+                                     as_attachment=True, 
+                                     download_name=req["filename"].split("--;--")[1])
                 else:
                     return jsonify({'message': 'You are not authorized to view this file'}), 501
 

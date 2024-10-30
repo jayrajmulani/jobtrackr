@@ -178,8 +178,8 @@ def modify_application(Applications):
             set_values = {"$set": application}
             modify_document = Applications.find_one_and_update(
                 filter, set_values, return_document=ReturnDocument.AFTER)
-        except Exception as e:
-            return jsonify({"error": e}), 400
+        except Exception:
+            return jsonify({"error": "Something went wrong"}), 400
         if modify_document == None:
             return jsonify({"error": "No such Job ID found for this user's email"}), 400
         else:

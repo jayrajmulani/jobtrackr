@@ -48,6 +48,8 @@ export default function ManageFiles() {
 			.catch((err) => console.log(err))
 			.finally(() => setLoadingDownload(false));
 	};
+
+
 	const onDeleteFile = (file) => {
 		setLoadingDelete(true);
 		axios

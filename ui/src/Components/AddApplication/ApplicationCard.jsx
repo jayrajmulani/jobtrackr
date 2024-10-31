@@ -4,7 +4,7 @@ import { EditFilled } from "@ant-design/icons";
 import axios from 'axios';
 import config from '../../config';
 import { message } from 'antd';
-
+import './ApplicationCard.scss'
 
 function ApplicationCard({application, modalFunc, refresh, email}) {
 
@@ -39,6 +39,9 @@ function ApplicationCard({application, modalFunc, refresh, email}) {
 
     return (
         <Card
+            style={{
+                alignItems: 'center'
+            }}
             title={application.companyName}
             extra={
                 <Button
@@ -79,9 +82,9 @@ function ApplicationCard({application, modalFunc, refresh, email}) {
             Logo:
             <br />
             <img className="logo" src={application.image} />
-            Quick Update:
             <br />
-            <Select value={columns[application.status]} onChange={(value) => quickUpdateApplications(value)}>
+            <div className='quickSelect'>
+            <Select value={columns[application.status]} onChange={(value) => quickUpdateApplications(value)} dropdownAlign={"Center"}>
                 {
                     Object.keys(columns).map(
                         (col) => (
@@ -93,6 +96,8 @@ function ApplicationCard({application, modalFunc, refresh, email}) {
                     )
                 }
             </Select>
+            </div>
+            
         </Card>
     );
 };

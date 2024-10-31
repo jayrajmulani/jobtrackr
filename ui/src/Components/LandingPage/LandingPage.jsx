@@ -7,6 +7,7 @@ import config from '../../config';
 import AddApplication from '../AddApplication/AddApplication';
 import EditApplication from '../AddApplication/EditApplication';
 import './LandingPage.scss';
+import ApplicationCard from '../AddApplication/ApplicationCard';
 
 const columns = {
 	applied: 'Applied',
@@ -74,48 +75,7 @@ export default function LandingPage() {
 											['rejected', 'accepted'].includes(
 												application.status
 											))) && (
-										<Card
-											key={col + index}
-											title={application.companyName}
-											extra={
-												<Button
-													type="text"
-													icon={<EditFilled />}
-													onClick={() => setEditApplication(application)}
-													id={application.jobId + 'edit'}
-												/>
-											}
-											className="Job"
-											bordered={false}
-											actions={
-												['rejected', 'accepted'].includes(
-													application.status
-												) && [
-													application.status === 'accepted' ? (
-														<Tag color="#87d068">Accepted</Tag>
-													) : (
-														application.status === 'rejected' && (
-															<Tag color="#f50">Rejected</Tag>
-														)
-													),
-												]
-											}
-										>
-											ID: {application.jobId}
-											<br />
-											Title: {application.jobTitle}
-											<br />
-											{'URL: '}
-											<a href={'//' + application.url} target={'_blank'}>
-												{application.url}
-											</a>
-											<br />
-											Notes: {application.description}
-											<br />
-											Logo:
-											<br />
-											<img className="logo" src={application.image} />
-										</Card>
+										<ApplicationCard key={col + index} application={application} modalFunc={setEditApplication} refresh={updateApplications} email={state.email} />
 									)
 							)
 						)}
